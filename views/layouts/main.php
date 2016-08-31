@@ -45,7 +45,7 @@ AppAsset::register($this);
               ['label' => 'Pregunta', 'url' => ['/pregunta/index']],
               ['label' => 'Supervisor', 'url' => ['/supervisor/index']],
               ['label' => 'Departamento', 'url' => ['/departamento/index']],
-              ['label' => 'Empleado', 'url' => ['/Empleado/index']],
+              ['label' => 'Empleado', 'url' => ['/empleado/index']],
               ['label' => 'Resultado', 'url' => ['/resultado/index']],
               ['label' => 'Empleado-supervisor', 'url' => ['/empleado-supervisor/index']],
             Yii::$app->user->isGuest ? (
