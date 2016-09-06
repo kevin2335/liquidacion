@@ -36,7 +36,7 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-              
+              ['label' => 'Solicitar', 'url' => ['/solicitar/index']],
               ['label' => 'Certificacion', 'url' => ['/certificacion/index']],
               ['label' => 'Firma', 'url' => ['/firma/index']],
               ['label' => 'Estado', 'url' => ['/estado/index']],
