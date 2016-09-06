@@ -1,9 +1,8 @@
-/*
+﻿/*
 SQLyog Community v12.2.4 (32 bit)
 MySQL - 10.1.13-MariaDB : Database - liquidacion
 *********************************************************************
-*/`mysql`
-
+*/
 /*!40101 SET NAMES utf8 */;
 
 /*!40101 SET SQL_MODE=''*/;
