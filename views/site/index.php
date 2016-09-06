@@ -14,7 +14,6 @@ $this->title = 'My Yii Application';
         <button type="button" name="button"></button>
       </div>
       <div class="panel-footer">
-
       </div>
     </div>
   </div>
