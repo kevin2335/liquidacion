@@ -2,13 +2,15 @@
 
 /* @var $this yii\web\View */
 
+<?php
+/* @var $this yii\web\View */
 $this->title = 'My Yii Application';
 ?>
 <div class="row">
   <div class="col-sm-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h1>Recursos Humanos</h1>
+        <h1>Solicitar</h1>
       </div>
       <div class="panel-body">
         <button type="button" name="button"></button>
