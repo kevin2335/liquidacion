@@ -3,7 +3,7 @@
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
-?> //aloha
+?>
 <div class="row">
   <div class="col-sm-12">
     <div class="panel panel-default">
