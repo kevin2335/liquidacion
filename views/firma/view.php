@@ -13,29 +13,14 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="firma-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
+      Gracias por Llenar el cuestionario
     </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'id_supervisor',
-            'id_certificacion',
-            'firma',
-            'fecha_firma',
-            'created_at',
-            'updated_at',
-        ],
-    ]) ?>
+    <p>
+        <?= Html::a('Firmar', ['/firmar/create', 'id' => $model->certificacion_id], ['class' => 'btn btn-primary']) ?>
+    </p>
+    <p>
+        <?= Html::a('Rechazar', ['/firmar/deny', 'id' => $model->certificacion_id], ['class' => 'btn btn-primary']) ?>
+    </p>
 
 </div>
