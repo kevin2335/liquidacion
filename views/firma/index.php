@@ -10,44 +10,19 @@ use yii\grid\GridView;
 
 ?>
 <div class="row">
-  <div class="col-sm-50">
+  <div class="col-sm-12">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h1 align ="center">Firmar</h1>
         <h1><?= Html::encode($this->title) ?></h1>
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-        <p>
-            <?= Html::a('Create Firma', ['create'], ['class' => 'btn btn-success']) ?>
-        </p>
-        <?= GridView::widget([
-            'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
-            'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
 
-                'id',
-                'id_supervisor',
-                'id_certificacion',
-                'firma',
-                'fecha_firma',
-                'created_at:date',
-                'updated_at',
 
-                ['class' => 'yii\grid\ActionColumn'],
-            ],
-        ]); ?>
-    </div>
 
     </div>
 
-   <div class="firma-index">
-   <div class="row">
-       <div class="col-sm-50">
-         <div class="panel panel-default">
-             <div class="panel-title">
-               <h1 align ="center">Pregunta</h1>
-             </div>
+
   <div class="pregunta-index">
       <h1><?= Html::encode($this->title) ?></h1>
       <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -55,29 +30,36 @@ use yii\grid\GridView;
 
 
       <?= GridView::widget([
+
           'dataProvider' => $dataProvider,
           'filterModel' => $searchModel,
           'columns' => [
               ['class' => 'yii\grid\SerialColumn'],
 
-              'id',
-              'id_dept',
-              'pregunta:ntext',
-              'no_bool',
-              'si_bool',
-              // 'na_bool',
-
+              //'id',//no hacerlo visible para el usuario
+              //'id_dept',//no hacerlo visible para el usuario
+              //'pregunta:ntext',// colocar la pregunta
+              'no_bool',//colocarlo checkbox
+              'si_bool',//colocarlo checkbox
+              'na_bool',//colocarlo checkbox
+              //setcomentaros
               ['class' => 'yii\grid\ActionColumn'],
           ],
       ]); ?>
   </div>
-
-  <p>
+  <!-- <p>
       <?= Html::a('Create Pregunta', ['create'], ['class' => 'btn btn-success']) ?>
-  </p>
+  </p> -->
+  <div class="firma-index">
+  <div class="row">
+      <div class="col-sm-6">
+        <div class="panel panel-defaul">
+                  <h1 align ="center"<button class="btn btn-default" type="submit">Rechazar</button>
+                    <h1 align ="center"<button class="btn btn-default" type="submit">Aceptar</button>
+              </div>
+            </div>
 
-  //antes
-    <!-- <h1><?= Html::encode($this->title) ?></h1>
+    <!-- <h1><?= Html::encode($this->title) ?></h1>//antes
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
@@ -100,4 +82,5 @@ use yii\grid\GridView;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-</div> -->
+    <!--  -->
+</div>
