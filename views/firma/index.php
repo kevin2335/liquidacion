@@ -30,3 +30,41 @@ $this->params['breadcrumbs'][] = $this->title;
       </div>
     </div>
   </div>
+<<<<<<< HEAD
+=======
+  <!-- <p>
+      <?= Html::a('Create Pregunta', ['create'], ['class' => 'btn btn-success']) ?>
+  </p> -->
+  <div class="firma-index">
+  <div class="row">
+      <div class="col-sm-6">
+        <div class="panel panel-defaul">
+                  <h1 align ="center"<button class="btn btn-default" type="submit">Aceptar</button>
+                    <h1 align ="center"<button class="btn btn-default" type="submit">Rechazar</button>
+              </div>
+            </div>
+
+    <!-- <h1><?= Html::encode($this->title) ?></h1>//antes
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <p>
+        <?= Html::a('Create Firma', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'id_supervisor',
+            'id_certificacion',
+            'firma',
+
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+    <!--  -->
+</div>
+>>>>>>> refs/remotes/origin/master
