@@ -11,18 +11,26 @@ $this->title = 'Estados';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="estado-index">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 align ="center">Solicitudes</h1>
+      </div>
+    </div>
+  </div>
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1>Estado de la Solicitud</h1>
+      </div>
+      <div class="panel-body">
 
-    <p>
-        <?= Html::a('Create Estado', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+      </div>
+      <div class="panel-footer">
+      </div>
+    </div>
+  </div>
 
             'id',
             'estado',
