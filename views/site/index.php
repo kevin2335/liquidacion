@@ -21,7 +21,7 @@ $this->title = 'My Yii Application';
         <h1>Solicitar</h1>
       </div>
       <div class="panel-body">
-          <button class="btn btn-default" type="submit">Solicitar</button>
+          <a href="?r=solicitar%2Fcreate"><button class="btn btn-default" type="submit">Solicitar</button></a>
       </div>
       <div class="panel-footer">
       </div>
@@ -33,7 +33,7 @@ $this->title = 'My Yii Application';
         <h1>Firmar</h1>
       </div>
       <div class="panel-body">
-        <button class="btn btn-default" type="submit">Firmar</button>
+        <a href="?r=resultado%2Fcreate"><button class="btn btn-default" type="submit">Firmar</button></a>
       </div>
       <div class="panel-footer">
       </div>
