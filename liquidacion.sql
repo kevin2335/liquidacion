@@ -1,8 +1,8 @@
 /*
-SQLyog Community v12.2.4 (32 bit)
-MySQL - 10.1.13-MariaDB : Database - liquidacion
+SQLyog Community v12.2.5 (64 bit)
+MySQL - 10.1.16-MariaDB : Database - liquidacion
 *********************************************************************
-*/`mysql`
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -12,7 +12,7 @@ MySQL - 10.1.13-MariaDB : Database - liquidacion
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`liquidacion` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`liquidacion` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci */;
 
 USE `liquidacion`;
 
@@ -29,9 +29,12 @@ CREATE TABLE `certificacion` (
   KEY `FK_certificacion_estado` (`id_estado`),
   CONSTRAINT `FK_certificacion_empleado` FOREIGN KEY (`id_empleado`) REFERENCES `empleado` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `certificacion_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `certificacion` */
+
+insert  into `certificacion`(`id`,`id_empleado`,`id_estado`) values 
+(2,1,1);
 
 /*Table structure for table `departamento` */
 
@@ -41,9 +44,12 @@ CREATE TABLE `departamento` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id:',
   `nombre_dept` varchar(12) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Nombre del departamento:',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `departamento` */
+
+insert  into `departamento`(`id`,`nombre_dept`) values 
+(1,'lol');
 
 /*Table structure for table `empleado` */
 
@@ -65,9 +71,12 @@ CREATE TABLE `empleado` (
   `updated_at` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_empleado_cert` (`id_certificacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `empleado` */
+
+insert  into `empleado`(`id`,`id_certificacion`,`nombre`,`apellido_m`,`apellido_p`,`seguro_social`,`nombramiento`,`puesto`,`oficina_division`,`fecha_empleado`,`razon_cese`,`created_at`,`updated_at`) values 
+(1,1,'lol','tu','no',2147483647,'ayre','mago','izq',978676,'muerte',NULL,NULL);
 
 /*Table structure for table `empleado_supervisor` */
 
@@ -94,9 +103,12 @@ CREATE TABLE `estado` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id:',
   `estado` varchar(56) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Estado:',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `estado` */
+
+insert  into `estado`(`id`,`estado`) values 
+(1,'Forma Sometida');
 
 /*Table structure for table `firmas` */
 
@@ -133,9 +145,13 @@ CREATE TABLE `preguntas` (
   PRIMARY KEY (`id`),
   KEY `FK_preguntas_dept` (`id_dept`),
   CONSTRAINT `FK_preguntas_dept` FOREIGN KEY (`id_dept`) REFERENCES `departamento` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `preguntas` */
+
+insert  into `preguntas`(`id`,`id_dept`,`pregunta`,`no_bool`,`si_bool`,`na_bool`) values 
+(1,1,'Pregunta 111111 Dept 1',NULL,NULL,NULL),
+(2,1,'Preunta 22222 Dept 1',NULL,NULL,NULL);
 
 /*Table structure for table `resultado` */
 
@@ -146,9 +162,6 @@ CREATE TABLE `resultado` (
   `id_supervisor` int(11) NOT NULL COMMENT 'Supervisor Id:',
   `id_certificacion` int(11) NOT NULL COMMENT 'Certidicación Id:',
   `resultado` varchar(12) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Resultado:',
-  `si_bool` int(1) DEFAULT NULL COMMENT 'Sí',
-  `no_bool` int(1) DEFAULT NULL COMMENT 'No',
-  `na_bool` int(1) DEFAULT NULL COMMENT 'N/A',
   `comentario` mediumtext COLLATE utf8_spanish_ci COMMENT 'Explicación:',
   `created_at` int(11) DEFAULT NULL,
   `updated_at` int(11) DEFAULT NULL,
@@ -157,9 +170,15 @@ CREATE TABLE `resultado` (
   KEY `FK_resultado_cert` (`id_certificacion`),
   CONSTRAINT `FK_resultado_cert` FOREIGN KEY (`id_certificacion`) REFERENCES `certificacion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_resultado_super` FOREIGN KEY (`id_supervisor`) REFERENCES `supervisor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `resultado` */
+
+insert  into `resultado`(`id`,`id_supervisor`,`id_certificacion`,`resultado`,`comentario`,`created_at`,`updated_at`) values 
+(4,1,2,'si','fxgvgx',1473288966,1473288966),
+(5,1,2,'si','fgszg',1473288966,1473288966),
+(6,1,2,'si','fxgvgx',1473289213,1473289213),
+(7,1,2,'si','fgszg',1473289213,1473289213);
 
 /*Table structure for table `supervisor` */
 
@@ -174,9 +193,12 @@ CREATE TABLE `supervisor` (
   PRIMARY KEY (`id`),
   KEY `FK_supervisor_dept` (`id_dept`),
   CONSTRAINT `FK_supervisor_dept` FOREIGN KEY (`id_dept`) REFERENCES `departamento` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /*Data for the table `supervisor` */
+
+insert  into `supervisor`(`id`,`id_dept`,`nombre_sup`,`apellido_m_sup`,`apellido_p_sup`) values 
+(1,1,'Sup1',NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
