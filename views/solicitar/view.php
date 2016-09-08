@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Solicitar */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Solicitars', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Solicitar', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="solicitar-view">

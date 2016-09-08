@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_supervisor',
             'id_certificacion',
             'resultado',
-            'si_bool',
+            //'si_bool',
             // 'no_bool',
             // 'na_bool',
             // 'comentario:ntext',

@@ -54,17 +54,17 @@ class Solicitar extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'id_certificacion' => 'Id Certificacion',
-            'nombre' => 'Nombre',
-            'apellido_m' => 'Apellido M',
-            'apellido_p' => 'Apellido P',
-            'seguro_social' => 'Seguro Social',
-            'nombramiento' => 'Nombramiento',
-            'puesto' => 'Puesto',
-            'oficina_division' => 'Oficina Division',
-            'fecha_empleado' => 'Fecha Empleado',
-            'razon_cese' => 'Razon Cese',
+            'id' => 'id:',
+            'id_certificacion' => 'Id de certificacion:',
+            'nombre' => 'Nombre:',
+            'apellido_m' => 'Apellido Materno:',
+            'apellido_p' => 'Apellido Paterno:',
+            'seguro_social' => 'Seguro Social:',
+            'nombramiento' => 'Nombramiento:',
+            'puesto' => 'Puesto que ocupa:',
+            'oficina_division' => 'Oficina o división:',
+            'fecha_empleado' => 'Fecha del cese o cambio:',
+            'razon_cese' => 'Razón de cese:',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

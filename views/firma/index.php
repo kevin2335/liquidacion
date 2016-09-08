@@ -75,15 +75,7 @@ use yii\grid\GridView;
             'id_supervisor',
             'id_certificacion',
             'firma',
-<<<<<<< HEAD
-            'fecha_firma: Date',
-            'created_at: DateTime',
-            'updated_at: DateTime',
-=======
-            'fecha_firma',
-            'created_at:date',
-            'updated_at',
->>>>>>> refs/remotes/origin/master
+
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
