@@ -1,5 +1,5 @@
 <?php
-
+use yii\helpers\Html;
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1>Solicitar</h1>
       </div>
       <div class="panel-body">
-          <button class="btn btn-default" type="submit">Solicitar</button>
+          <a href="?r=solicitar%2Fcreate"><button class="btn btn-default" type="submit">Solicitar</button></a>
       </div>
       <div class="panel-footer">
       </div>
