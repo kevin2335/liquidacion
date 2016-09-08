@@ -14,10 +14,10 @@ $this->params['breadcrumbs'][] = $this->title;
   <div class="col-sm-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h1 align ="center">Firmas</h1>
+        <h1 align ="center">Firmar</h1>
       </div>
       <div class="panel-body">
-        <h1><?= Html::encode($this->title) ?></h1>
+        
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
         <p>
