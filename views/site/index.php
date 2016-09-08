@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
   <div class="col-sm-12">
