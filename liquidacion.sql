@@ -2,11 +2,8 @@
 SQLyog Community v12.2.5 (64 bit)
 MySQL - 10.1.16-MariaDB : Database - liquidacion
 *********************************************************************
-<<<<<<< HEAD
-`mysql`*/
-=======
-*/
->>>>>>> refs/remotes/origin/master
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -37,7 +34,8 @@ CREATE TABLE `certificacion` (
 
 /*Data for the table `certificacion` */
 
-insert  into `certificacion`(`id`,`id_empleado`,`id_estado`) values 
+insert  into `certificacion`(`id`,`id_empleado`,`id_estado`) values 
+
 (2,1,1);
 
 /*Table structure for table `departamento` */
@@ -52,7 +50,8 @@ CREATE TABLE `departamento` (
 
 /*Data for the table `departamento` */
 
-insert  into `departamento`(`id`,`nombre_dept`) values 
+insert  into `departamento`(`id`,`nombre_dept`) values 
+
 (1,'lol');
 
 /*Table structure for table `empleado` */
@@ -79,7 +78,8 @@ CREATE TABLE `empleado` (
 
 /*Data for the table `empleado` */
 
-insert  into `empleado`(`id`,`id_certificacion`,`nombre`,`apellido_m`,`apellido_p`,`seguro_social`,`nombramiento`,`puesto`,`oficina_division`,`fecha_empleado`,`razon_cese`,`created_at`,`updated_at`) values 
+insert  into `empleado`(`id`,`id_certificacion`,`nombre`,`apellido_m`,`apellido_p`,`seguro_social`,`nombramiento`,`puesto`,`oficina_division`,`fecha_empleado`,`razon_cese`,`created_at`,`updated_at`) values 
+
 (1,1,'lol','tu','no',2147483647,'ayre','mago','izq',978676,'muerte',NULL,NULL);
 
 /*Table structure for table `empleado_supervisor` */
@@ -111,7 +111,8 @@ CREATE TABLE `estado` (
 
 /*Data for the table `estado` */
 
-insert  into `estado`(`id`,`estado`) values 
+insert  into `estado`(`id`,`estado`) values 
+
 (1,'Forma Sometida');
 
 /*Table structure for table `firmas` */
@@ -153,8 +154,10 @@ CREATE TABLE `preguntas` (
 
 /*Data for the table `preguntas` */
 
-insert  into `preguntas`(`id`,`id_dept`,`pregunta`,`no_bool`,`si_bool`,`na_bool`) values 
-(1,1,'Pregunta 111111 Dept 1',NULL,NULL,NULL),
+insert  into `preguntas`(`id`,`id_dept`,`pregunta`,`no_bool`,`si_bool`,`na_bool`) values 
+
+(1,1,'Pregunta 111111 Dept 1',NULL,NULL,NULL),
+
 (2,1,'Preunta 22222 Dept 1',NULL,NULL,NULL);
 
 /*Table structure for table `resultado` */
@@ -178,10 +181,14 @@ CREATE TABLE `resultado` (
 
 /*Data for the table `resultado` */
 
-insert  into `resultado`(`id`,`id_supervisor`,`id_certificacion`,`resultado`,`comentario`,`created_at`,`updated_at`) values 
-(4,1,2,'si','fxgvgx',1473288966,1473288966),
-(5,1,2,'si','fgszg',1473288966,1473288966),
-(6,1,2,'si','fxgvgx',1473289213,1473289213),
+insert  into `resultado`(`id`,`id_supervisor`,`id_certificacion`,`resultado`,`comentario`,`created_at`,`updated_at`) values 
+
+(4,1,2,'si','fxgvgx',1473288966,1473288966),
+
+(5,1,2,'si','fgszg',1473288966,1473288966),
+
+(6,1,2,'si','fxgvgx',1473289213,1473289213),
+
 (7,1,2,'si','fgszg',1473289213,1473289213);
 
 /*Table structure for table `supervisor` */
@@ -201,7 +208,8 @@ CREATE TABLE `supervisor` (
 
 /*Data for the table `supervisor` */
 
-insert  into `supervisor`(`id`,`id_dept`,`nombre_sup`,`apellido_m_sup`,`apellido_p_sup`) values 
+insert  into `supervisor`(`id`,`id_dept`,`nombre_sup`,`apellido_m_sup`,`apellido_p_sup`) values 
+
 (1,1,'Sup1',NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
