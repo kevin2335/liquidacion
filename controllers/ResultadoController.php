@@ -3,7 +3,9 @@
 namespace app\controllers;
 
 use Yii;
+use yii\base\Model;
 use app\models\Resultado;
+use app\models\Pregunta;
 use app\models\ResultadoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -63,13 +65,30 @@ class ResultadoController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Resultado();
+        $dept_id = 1;
+        $sup_id = 1;
+        $cert_id = 2;
+        $preguntas = $this->findPreguntas($dept_id);
+        $resultados = [];
+        foreach($preguntas as $key => $pregunta) {
+            $resultados[] = new Resultado();
+            $resultados[$key]->id_supervisor = $sup_id;
+            $resultados[$key]->id_certificacion = $cert_id;
+            $resultados[$key]->pregunta = $pregunta->pregunta;
+            $resultados[$key]->_si = $pregunta->si_bool;
+            $resultados[$key]->_no = $pregunta->no_bool;
+            $resultados[$key]->_na = $pregunta->na_bool;
+        }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if (Model::loadMultiple($resultados, Yii::$app->request->post()) && Model::validateMultiple($resultados)) {
+
+            foreach ($resultados as $resultado) {
+              $resultado->save(false);
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                'resultados' => $resultados,
             ]);
         }
     }
@@ -117,6 +136,21 @@ class ResultadoController extends Controller
     {
         if (($model = Resultado::findOne($id)) !== null) {
             return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    /**
+     * Finds the Preguntas model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Resultado the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findPreguntas($id)
+    {
+        if (($models = Pregunta::find()->where(['id_dept' => $id])->all()) !== null) {
+            return $models;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }

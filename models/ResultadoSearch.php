@@ -18,7 +18,7 @@ class ResultadoSearch extends Resultado
     public function rules()
     {
         return [
-            [['id', 'id_supervisor', 'id_certificacion', 'si_bool', 'no_bool', 'na_bool', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'id_supervisor', 'id_certificacion', 'created_at', 'updated_at'], 'integer'],
             [['resultado', 'comentario'], 'safe'],
         ];
     }
@@ -62,9 +62,6 @@ class ResultadoSearch extends Resultado
             'id' => $this->id,
             'id_supervisor' => $this->id_supervisor,
             'id_certificacion' => $this->id_certificacion,
-            'si_bool' => $this->si_bool,
-            'no_bool' => $this->no_bool,
-            'na_bool' => $this->na_bool,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
