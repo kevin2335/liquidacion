@@ -39,7 +39,7 @@ use yii\widgets\ActiveForm;
 
               <?= $form->field($model, 'razon_cese')->textInput(['maxlength' => true]) ?>
               <div class="form-group">
-                  <?= Html::submitButton($model->isNewRecord ? 'Solicitar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-primary' : 'btn btn-primary']) ?>
+                  <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-primary' : 'btn btn-primary']) ?>
               </div>
             </div>
           <div class="panel-footer">
