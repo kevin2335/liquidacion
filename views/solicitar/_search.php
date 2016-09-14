@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\ResultadoSearch */
+/* @var $model app\models\SolicitarSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="resultado-search">
+<div class="solicitar-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,19 +17,25 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'id_supervisor') ?>
-
     <?= $form->field($model, 'id_certificacion') ?>
 
-    <?= $form->field($model, 'resultado') ?>
+    <?= $form->field($model, 'nombre') ?>
 
-    <?php // echo $form->field($model, 'si_bool') ?>
+    <?= $form->field($model, 'apellido_m') ?>
 
-    <?php // echo $form->field($model, 'no_bool') ?>
+    <?= $form->field($model, 'apellido_p') ?>
 
-    <?php // echo $form->field($model, 'na_bool') ?>
+    <?php // echo $form->field($model, 'seguro_social') ?>
 
-    <?php // echo $form->field($model, 'comentario') ?>
+    <?php // echo $form->field($model, 'nombramiento') ?>
+
+    <?php // echo $form->field($model, 'puesto') ?>
+
+    <?php // echo $form->field($model, 'oficina_division') ?>
+
+    <?php // echo $form->field($model, 'fecha_empleado') ?>
+
+    <?php // echo $form->field($model, 'razon_cese') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 

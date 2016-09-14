@@ -61,9 +61,9 @@ class PreguntaSearch extends Pregunta
         $query->andFilterWhere([
             'id' => $this->id,
             'id_dept' => $this->id_dept,
-            'no_bool' => $this->no_bool,
-            'si_bool' => $this->si_bool,
-            'na_bool' => $this->na_bool,
+          //  'no_bool' => $this->no_bool,
+          //  'si_bool' => $this->si_bool,
+          //  'na_bool' => $this->na_bool,
         ]);
 
         $query->andFilterWhere(['like', 'pregunta', $this->pregunta]);

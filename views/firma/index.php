@@ -7,15 +7,17 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\FirmaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-
+$this->title = 'Firma';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
   <div class="col-sm-12">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h1 align ="center">Firmar</h1>
-        <h1><?= Html::encode($this->title) ?></h1>
+
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
 
 
 
@@ -54,8 +56,8 @@ use yii\grid\GridView;
   <div class="row">
       <div class="col-sm-6">
         <div class="panel panel-defaul">
-                  <h1 align ="center"<button class="btn btn-default" type="submit">Rechazar</button>
-                    <h1 align ="center"<button class="btn btn-default" type="submit">Aceptar</button>
+                  <h1 align ="center"<button class="btn btn-default" type="submit">Aceptar</button>
+                    <h1 align ="center"<button class="btn btn-default" type="submit">Rechazar</button>
               </div>
             </div>
 
@@ -75,9 +77,7 @@ use yii\grid\GridView;
             'id_supervisor',
             'id_certificacion',
             'firma',
-            'fecha_firma',
-            'created_at:date',
-            'updated_at',
+
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

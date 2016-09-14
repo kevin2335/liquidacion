@@ -18,11 +18,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'resultado')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'si_bool')->textInput() ?>
+    <?php // echo$form->field($model, 'si_bool')->textInput() ?>
 
-    <?= $form->field($model, 'no_bool')->textInput() ?>
+    <?php // echo$form->field($model, 'no_bool')->textInput() ?>
 
-    <?= $form->field($model, 'na_bool')->textInput() ?>
+    <?php // echo $form->field($model, 'na_bool')->textInput() ?>
 
     <?= $form->field($model, 'comentario')->textarea(['rows' => 6]) ?>
 
