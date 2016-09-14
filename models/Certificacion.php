@@ -18,8 +18,6 @@ use Yii;
  */
 class Certificacion extends \yii\db\ActiveRecord
 {
-
-    public $is_rejected;
     /**
      * @inheritdoc
      */
@@ -83,10 +81,5 @@ class Certificacion extends \yii\db\ActiveRecord
     public function getResultados()
     {
         return $this->hasMany(Resultado::className(), ['id_certificacion' => 'id']);
-    }
-
-    public function getIsRejected()
-    {
-        return ($this->is_rejected == 1)? 'Rechazado' : 'Aprobado';
     }
 }

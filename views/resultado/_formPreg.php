@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?php foreach ($resultados as $key => $model): ?>
-      
+      <?php print_r($model->errors); ?>
         <p><?= Html::encode($model->pregunta); ?></p>
 
         <?= $form->field($model, '['.$key.']resultado')->radioList(['no' => 'No', 'si' => 'Si', 'na' => 'N/A'])->label(false); ?>
@@ -26,20 +26,10 @@ use yii\widgets\ActiveForm;
 
 
     <div class="form-group">
-        <?= Html::submitButton('Firmar', ['class' => 'btn btn-success']) ?>
-        <button class=" btn btn-info" data-toggle="modal" data-target="#miventana">
-          Rechazar
-        </button>
-        <div class="modal fade" id="mi ventana" tabindex="-1" role="dialog"aria-labelleby="myModalLabel"aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4
-      </div>
-        </div>
+        <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
+
     </div>
-</div>
+
     <?php ActiveForm::end(); ?>
-</div>
+
 </div>
