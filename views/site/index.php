@@ -22,11 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1>Solicitar</h1>
       </div>
       <div class="panel-body">
-<<<<<<< HEAD
-        
-=======
-          <a href="?r=solicitar%2Fcreate"><button class="btn btn-default" type="submit">Solicitar</button></a>
->>>>>>> refs/remotes/origin/dev
+          <h4>Solicitar una certificación de relevo de responsabilidad de empleado</h4>
       </div>
       <div class="panel-footer">
         <a href="?r=solicitar%2Fcreate"><button class="btn btn-default" type="submit">Solicitar</button></a>
@@ -39,11 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1>Firmar</h1>
       </div>
       <div class="panel-body">
-<<<<<<< HEAD
 
-=======
-        <a href="?r=resultado%2Fcreate"><button class="btn btn-default" type="submit">Firmar</button></a>
->>>>>>> refs/remotes/origin/dev
       </div>
       <div class="panel-footer">
         <button class="btn btn-default" type="submit">Firmar</button>

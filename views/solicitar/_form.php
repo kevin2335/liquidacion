@@ -21,6 +21,7 @@ use yii\widgets\ActiveForm;
             <h1 align ="center">Solicitud</h1>
           </div>
             <div class="panel-body">
+              <div class="row">
               <div class="col-sm-6">
                 <div class="panel panel-default">
                   <div class="panel-body">
@@ -39,6 +40,8 @@ use yii\widgets\ActiveForm;
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-sm-6">
                 <div class="panel panel-default">
                   <div class="panel-body">
@@ -56,6 +59,7 @@ use yii\widgets\ActiveForm;
                 </div>
               </div>
             </div>
+          </div>
           <div class="panel-footer">
               <?= Html::submitButton($model->isNewRecord ? 'Solicitar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-primary' : 'btn btn-primary']) ?>
           </div>
