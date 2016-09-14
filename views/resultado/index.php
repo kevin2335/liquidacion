@@ -28,7 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_supervisor',
             'id_certificacion',
             'resultado',
+<<<<<<< HEAD
             //'si_bool',
+=======
+          //  'si_bool',
+>>>>>>> refs/remotes/origin/dev
             // 'no_bool',
             // 'na_bool',
             // 'comentario:ntext',

@@ -25,3 +25,8 @@ composer.phar
 phpunit.phar
 # local phpunit config
 /phpunit.xml
+models/SolicitarSearch.php
+controllers/SolicitarController.php
+views/solicitar/view.php
+views/solicitar/_form.php
+views/solicitar/view.php

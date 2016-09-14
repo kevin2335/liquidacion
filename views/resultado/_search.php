@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'resultado') ?>
 
-    <?= $form->field($model, 'si_bool') ?>
+    <?php // echo $form->field($model, 'si_bool') ?>
 
     <?php // echo $form->field($model, 'no_bool') ?>
 

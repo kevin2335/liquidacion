@@ -3,6 +3,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
   <div class="col-sm-12">
@@ -21,7 +22,11 @@ $this->title = 'My Yii Application';
         <h1>Solicitar</h1>
       </div>
       <div class="panel-body">
+<<<<<<< HEAD
         
+=======
+          <a href="?r=solicitar%2Fcreate"><button class="btn btn-default" type="submit">Solicitar</button></a>
+>>>>>>> refs/remotes/origin/dev
       </div>
       <div class="panel-footer">
         <a href="?r=solicitar%2Fcreate"><button class="btn btn-default" type="submit">Solicitar</button></a>
@@ -34,7 +39,11 @@ $this->title = 'My Yii Application';
         <h1>Firmar</h1>
       </div>
       <div class="panel-body">
+<<<<<<< HEAD
 
+=======
+        <a href="?r=resultado%2Fcreate"><button class="btn btn-default" type="submit">Firmar</button></a>
+>>>>>>> refs/remotes/origin/dev
       </div>
       <div class="panel-footer">
         <button class="btn btn-default" type="submit">Firmar</button>
