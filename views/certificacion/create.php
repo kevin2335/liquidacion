@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Certificacion */
 
 $this->title = 'Create Certificacion';
-$this->params['breadcrumbs'][] = ['label' => 'Certificacions', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Certificacion', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="certificacion-create">

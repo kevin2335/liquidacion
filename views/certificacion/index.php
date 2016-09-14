@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\CertificacionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Certificacions';
+$this->title = 'Certificacion';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="certificacion-index">
@@ -20,11 +20,11 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'id_empleado',
             'id_estado',
 

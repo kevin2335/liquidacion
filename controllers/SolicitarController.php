@@ -71,6 +71,7 @@ class SolicitarController extends Controller
             return $this->render('create', [
                 'model' => $model,
             ]);
+            
         }
     }
 

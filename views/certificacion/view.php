@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Certificacion */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Certificacions', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Certificacion', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="certificacion-view">
