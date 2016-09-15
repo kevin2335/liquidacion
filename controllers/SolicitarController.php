@@ -63,6 +63,7 @@ class SolicitarController extends Controller
      */
     public function actionCreate()
     {
+
         $model = new Solicitar();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -71,7 +72,7 @@ class SolicitarController extends Controller
             return $this->render('create', [
                 'model' => $model,
             ]);
-            
+
         }
     }
 
@@ -114,6 +115,8 @@ class SolicitarController extends Controller
      * @return Solicitar the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
+
+
     protected function findModel($id)
     {
         if (($model = Solicitar::findOne($id)) !== null) {
