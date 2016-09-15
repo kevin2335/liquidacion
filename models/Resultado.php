@@ -12,9 +12,6 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $id_supervisor
  * @property integer $id_certificacion
  * @property string $resultado
- * @property integer $si_bool
- * @property integer $no_bool
- * @property integer $na_bool
  * @property string $comentario
  * @property integer $created_at
  * @property integer $updated_at

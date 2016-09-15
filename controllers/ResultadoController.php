@@ -65,7 +65,7 @@ class ResultadoController extends Controller
      */
     public function actionCreate($cert_id = 2)
     {
-        $dept_id = 1;
+        $dept_id = 4;
         $sup_id = 1;
         $preguntas = $this->findPreguntas($dept_id);
         $resultados = [];

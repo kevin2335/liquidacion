@@ -9,6 +9,9 @@ use app\models\Pregunta;
 
 /**
  * PreguntaSearch represents the model behind the search form about `app\models\Pregunta`.
+ * @property integer $id
+ * @property integer $id_dept
+ * @property string $pregunta
  */
 class PreguntaSearch extends Pregunta
 {
