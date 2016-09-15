@@ -16,6 +16,7 @@ use yii\grid\GridView;
     <div class="panel-heading">
       <h1 align="center">Firmar</h1>
     </div>
+
     <div class="panel-body">
       <h2> <small>"Certificar que la labor del funcionario esté al día y que haya entregado, registro de notas(si aplica), llaves, equipo u propiedad universitaria y entre otros."</small></h2>
       </div>

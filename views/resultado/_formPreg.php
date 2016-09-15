@@ -27,7 +27,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <a href ="?r=resultado%2Fcreate"><?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
-        
+
     </div>
 
     <?php ActiveForm::end(); ?>
