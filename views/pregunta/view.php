@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Esta seguro de borrarlo?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -31,9 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'id_dept',
             'pregunta:ntext',
-            'no_bool',
-            'si_bool',
-            'na_bool',
+
         ],
     ]) ?>
 

@@ -74,9 +74,6 @@ class ResultadoController extends Controller
             $resultados[$key]->id_supervisor = $sup_id;
             $resultados[$key]->id_certificacion = $cert_id;
             $resultados[$key]->pregunta = $pregunta->pregunta;
-            //$resultados[$key]->_si = $pregunta->si_bool;
-          //  $resultados[$key]->_no = $pregunta->no_bool;
-          //  $resultados[$key]->_na = $pregunta->na_bool;
         }
 
         if (Model::loadMultiple($resultados, Yii::$app->request->post()) && Model::validateMultiple($resultados)) {

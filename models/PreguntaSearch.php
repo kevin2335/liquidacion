@@ -18,7 +18,7 @@ class PreguntaSearch extends Pregunta
     public function rules()
     {
         return [
-            [['id', 'id_dept', 'no_bool', 'si_bool', 'na_bool'], 'integer'],
+            [['id', 'id_dept'], 'integer'],
             [['pregunta'], 'safe'],
         ];
     }
@@ -61,9 +61,6 @@ class PreguntaSearch extends Pregunta
         $query->andFilterWhere([
             'id' => $this->id,
             'id_dept' => $this->id_dept,
-          //  'no_bool' => $this->no_bool,
-          //  'si_bool' => $this->si_bool,
-          //  'na_bool' => $this->na_bool,
         ]);
 
         $query->andFilterWhere(['like', 'pregunta', $this->pregunta]);

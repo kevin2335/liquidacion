@@ -28,13 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_supervisor',
             'id_certificacion',
             'resultado',
-          //  'si_bool',
-            // 'no_bool',
-            // 'na_bool',
-            // 'comentario:ntext',
-            // 'created_at',
-            // 'updated_at',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

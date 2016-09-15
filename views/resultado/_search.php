@@ -23,18 +23,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'resultado') ?>
 
-    <?php // echo $form->field($model, 'si_bool') ?>
-
-    <?php // echo $form->field($model, 'no_bool') ?>
-
-    <?php // echo $form->field($model, 'na_bool') ?>
-
-    <?php // echo $form->field($model, 'comentario') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'updated_at') ?>
-
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
