@@ -36,17 +36,21 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1>Firmar</h1>
       </div>
       <div class="panel-body">
-        <?php foreach($empleado as $empleados)
-        {
-        echo $empleados->nombre;
-
-        echo " ";
-        echo $empleados->apellido_p;
-        echo"<br>";
-        //Html::Button('Firmar',['class'=>'btn btn-default'])
-
-
-        }?>
+        <h4>Solicitudes de los empleados a firmar: </h4>
+        <?php
+        //echo"<br>";
+        $i = 0;
+        foreach($empleado as $empleados):?>
+          <input type="radio" name=answer[<?php print $i; ?>]>
+          <?php
+          echo $empleados->nombre;
+          echo " ";
+          echo $empleados->apellido_p;
+          $i++;
+          echo"<br>";
+          //Html::Button('Firmar',['class'=>'btn btn-default'])
+        endforeach;
+        ?>
       </div>
       <div class="panel-footer">
         <button class="btn btn-default" type="submit">Firmar</button>

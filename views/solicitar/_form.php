@@ -14,6 +14,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
 
+
     <div class="row">
       <div class="col-sm-12">
         <div class="panel panel-default">
@@ -26,7 +27,7 @@ use yii\widgets\ActiveForm;
                 <div class="panel panel-default">
                   <div class="panel-body">
                     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
-                    <?= $form->field($model, 'apellido_p')->textInput(['maxlength' => true]) ?>
+                    <?= $form->field($model,'apellido_p')->textInput(['maxlength' => true]) ?>
                     <?= $form->field($model, 'apellido_m')->textInput(['maxlength' => true]) ?>
                   </div>
                 </div>

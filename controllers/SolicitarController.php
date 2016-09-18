@@ -3,11 +3,13 @@
 namespace app\controllers;
 
 use Yii;
+use yii\base\Model;
 use app\models\Solicitar;
 use app\models\SolicitarSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\Empleado;
 
 /**
  * SolicitarController implements the CRUD actions for Solicitar model.
@@ -61,20 +63,20 @@ class SolicitarController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+     public function actionCreate()
+     {
+         $model = new Solicitar();
 
-        $model = new Solicitar();
+         if ($model->load(Yii::$app->request->post())) {
+            $model->save(true);
+             return $this->redirect(['view', 'id' => $model->id]);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-
-        }
-    }
+         } else {
+             return $this->render('create', [
+                 'model' => $model,
+             ]);
+         }
+     }
 
     /**
      * Updates an existing Solicitar model.
@@ -121,6 +123,15 @@ class SolicitarController extends Controller
     {
         if (($model = Solicitar::findOne($id)) !== null) {
             return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    protected function findCertificacion($cert_id)
+    {
+        if (($models = Solicitar::find()->where(['id_certificacion' => $cert_id])->all()) !== null) {
+            return $models;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
