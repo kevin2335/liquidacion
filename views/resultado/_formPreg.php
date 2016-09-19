@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?php foreach ($resultados as $key => $model): ?>
-      <?php print_r($model->errors); ?>
+
         <p><?= Html::encode($model->pregunta); ?></p>
 
         <?= $form->field($model, '['.$key.']resultado')->radioList(['no' => 'No', 'si' => 'Si', 'na' => 'N/A'])->label(false); ?>
@@ -26,8 +26,8 @@ use yii\widgets\ActiveForm;
 
 
     <div class="form-group">
-        <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
-
+        <a href ="?r=resultado%2Fcreate"><?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
+        
     </div>
 
     <?php ActiveForm::end(); ?>

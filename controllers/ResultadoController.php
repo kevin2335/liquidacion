@@ -49,25 +49,24 @@ class ResultadoController extends Controller
     /**
      * Displays a single Resultado model.
      * @param integer $id
+      *@param integer $cert_id
      * @return mixed
      */
-    public function actionView($id)
+    public function actionView($cert_id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'models' => $this->findModels($cert_id),
         ]);
     }
-
     /**
      * Creates a new Resultado model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($cert_id = 2)
     {
-        $dept_id = 1;
+        $dept_id = 4;
         $sup_id = 1;
-        $cert_id = 2;
         $preguntas = $this->findPreguntas($dept_id);
         $resultados = [];
         foreach($preguntas as $key => $pregunta) {
@@ -75,9 +74,6 @@ class ResultadoController extends Controller
             $resultados[$key]->id_supervisor = $sup_id;
             $resultados[$key]->id_certificacion = $cert_id;
             $resultados[$key]->pregunta = $pregunta->pregunta;
-            //$resultados[$key]->_si = $pregunta->si_bool;
-          //  $resultados[$key]->_no = $pregunta->no_bool;
-          //  $resultados[$key]->_na = $pregunta->na_bool;
         }
 
         if (Model::loadMultiple($resultados, Yii::$app->request->post()) && Model::validateMultiple($resultados)) {
@@ -85,7 +81,7 @@ class ResultadoController extends Controller
             foreach ($resultados as $resultado) {
               $resultado->save(false);
             }
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $cert_id]);
         } else {
             return $this->render('create', [
                 'resultados' => $resultados,
@@ -141,9 +137,28 @@ class ResultadoController extends Controller
         }
     }
     /**
-     * Finds the Preguntas model based on its primary key value.
+     * Finds the Resultado model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
+     * @return Resultado the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModels($cert_id)
+    {
+        return Resultado::find()->where(['id' => $cert_id])->all();
+    }
+    protected function findCert($cert_id)
+    {
+        if (($model = Resultado::findOne($cert_id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    /**
+     * Finds the Preguntas model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $cert_id
      * @return Resultado the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

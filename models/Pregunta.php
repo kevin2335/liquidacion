@@ -10,10 +10,6 @@ use Yii;
  * @property integer $id
  * @property integer $id_dept
  * @property string $pregunta
- * @property integer $no_bool
- * @property integer $si_bool
- * @property integer $na_bool
- *
  * @property Departamento $idDept
  */
 class Pregunta extends \yii\db\ActiveRecord
@@ -33,7 +29,7 @@ class Pregunta extends \yii\db\ActiveRecord
     {
         return [
             [['id_dept', 'pregunta'], 'required'],
-            [['id_dept', 'no_bool', 'si_bool', 'na_bool'], 'integer'],
+            [['id_dept'], 'integer'],
             [['pregunta'], 'string'],
             [['id_dept'], 'exist', 'skipOnError' => true, 'targetClass' => Departamento::className(), 'targetAttribute' => ['id_dept' => 'id']],
         ];
@@ -48,9 +44,7 @@ class Pregunta extends \yii\db\ActiveRecord
             'id' => 'Id:',
             'id_dept' => 'Departamento Id:',
             'pregunta' => 'Pregunta:',
-            'no_bool' => 'No',
-            'si_bool' => 'Sí',
-            'na_bool' => 'N/A',
+            
         ];
     }
 
