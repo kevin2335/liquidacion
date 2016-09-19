@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
@@ -22,9 +23,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1>Solicitar</h1>
       </div>
       <div class="panel-body">
-          <a href="?r=solicitar%2Fcreate"><button class="btn btn-default" type="submit">Solicitar</button></a>
+          <h4>Solicitar una certificación de relevo de responsabilidad de empleado</h4>
       </div>
       <div class="panel-footer">
+        <a href="?r=solicitar%2Fcreate"><button class="btn btn-default" type="submit">Solicitar</button></a>
       </div>
     </div>
   </div>
@@ -34,9 +36,20 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1>Firmar</h1>
       </div>
       <div class="panel-body">
-        <a href="?r=resultado%2Fcreate"><button class="btn btn-default" type="submit">Firmar</button></a>
+        <?php foreach($empleado as $empleados)
+        {
+        echo $empleados->nombre;
+
+        echo " ";
+        echo $empleados->apellido_p;
+        echo"<br>";
+        //Html::Button('Firmar',['class'=>'btn btn-default'])
+
+
+        }?>
       </div>
       <div class="panel-footer">
+        <button class="btn btn-default" type="submit">Firmar</button>
       </div>
     </div>
   </div>
