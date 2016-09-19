@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1>Solicitar</h1>
       </div>
       <div class="panel-body">
-          <h4>Solicitar una certificación de relevo de responsabilidad de empleado</h4>
+        <h4>Solicitar una certificación de relevo de responsabilidad de empleado</h4>
       </div>
       <div class="panel-footer">
         <a href="?r=solicitar%2Fcreate"><button class="btn btn-default" type="submit">Solicitar</button></a>
@@ -38,22 +38,22 @@ $this->params['breadcrumbs'][] = $this->title;
       <div class="panel-body">
         <h4>Solicitudes de los empleados a firmar: </h4>
         <?php
-        //echo"<br>";
-        $i = 0;
-        foreach($empleado as $empleados):?>
-          <input type="radio" name=answer[<?php print $i; ?>]>
-          <?php
-          echo $empleados->nombre;
-          echo " ";
-          echo $empleados->apellido_p;
-          $i++;
-          echo"<br>";
-          //Html::Button('Firmar',['class'=>'btn btn-default'])
-        endforeach;
+            //echo"<br>";
+            $i = 0;
+            foreach($empleado as $empleados):?>
+              <input type="radio" name=answer[<?php print $i; ?>]>
+              <?php
+              echo $empleados->nombre;
+              echo " ";
+              echo $empleados->apellido_p;
+              $i++;
+              echo"<br>";
+              //Html::Button('Firmar',['class'=>'btn btn-default'])
+            endforeach;
         ?>
       </div>
       <div class="panel-footer">
-        <button class="btn btn-default" type="submit">Firmar</button>
+        <a href="?r=resultado%2Fcreate"><button class="btn btn-default" type="submit">Firmar</button></a>
       </div>
     </div>
   </div>
