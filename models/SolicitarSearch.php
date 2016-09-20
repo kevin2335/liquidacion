@@ -73,7 +73,8 @@ class SolicitarSearch extends Solicitar
             ->andFilterWhere(['like', 'nombramiento', $this->nombramiento])
             ->andFilterWhere(['like', 'puesto', $this->puesto])
             ->andFilterWhere(['like', 'oficina_division', $this->oficina_division])
-            ->andFilterWhere(['like', 'razon_cese', $this->razon_cese]);
+            ->andFilterWhere(['like', 'razon_cese', $this->razon_cese])
+            ->andFilterWhere(['like', 'email', $this->email]);
 
         return $dataProvider;
     }

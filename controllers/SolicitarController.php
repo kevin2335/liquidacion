@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\Empleado;
+use app\models\Certificacion;
 
 /**
  * SolicitarController implements the CRUD actions for Solicitar model.
@@ -65,15 +66,15 @@ class SolicitarController extends Controller
      */
      public function actionCreate()
      {
-         $model = new Solicitar();
+         $solicitud = new Solicitar();
 
-         if ($model->load(Yii::$app->request->post())) {
-            $model->save(true);
-             return $this->redirect(['view', 'id' => $model->id]);
+         if ($solicitud->load(Yii::$app->request->post())) {
+              $solicitud->save(false);
+              return $this->redirect(['view', 'id' => $solicitud->id]);
 
          } else {
-             return $this->render('create', [
-                 'model' => $model,
+              return $this->render('create', [
+                'model' => $solicitud,
              ]);
          }
      }
@@ -96,7 +97,6 @@ class SolicitarController extends Controller
             ]);
         }
     }
-
     /**
      * Deletes an existing Solicitar model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

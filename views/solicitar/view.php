@@ -39,6 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'oficina_division',
             'fecha_empleado',
             'razon_cese',
+            'email',
             'created_at',
             'updated_at',
         ],
