@@ -18,12 +18,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'resultado')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'si_bool')->textInput() ?>
-
-    <?= $form->field($model, 'no_bool')->textInput() ?>
-
-    <?= $form->field($model, 'na_bool')->textInput() ?>
-
     <?= $form->field($model, 'comentario')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>
@@ -31,7 +25,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Contestar preguntas' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

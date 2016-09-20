@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Empleado;
 
 class SiteController extends Controller
 {
@@ -37,6 +38,21 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionCreate()
+    {
+
+
+        /*$certificacion_id = 1;
+        $empleado_id = $this->findEmpleado($certificacion_id);
+        $empleado = 1;
+        foreach($empleado_id as $key=>$certificacion_id)
+        {
+          $empleado = new Empleado();
+          $empleado -> id_certificacion = $certificacion_id;
+        }
+        $this->render()*/
+    }
+
     /**
      * @inheritdoc
      */
@@ -53,6 +69,7 @@ class SiteController extends Controller
         ];
     }
 
+
     /**
      * Displays homepage.
      *
@@ -60,7 +77,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+      $empleado = Empleado::find()->all();
+      return $this->render('index',['empleado'=>$empleado]);
+        //return $this->render('index');
+
     }
 
     /**
@@ -121,5 +141,14 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    protected function findEmpleado($certificacion_id)
+    {
+        if (($model = Empleado::find()->where(['id_certificacion'] ->$certificacion_id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 }

@@ -19,11 +19,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_dept') ?>
 
-    <?= $form->field($model, 'pregunta') ?>
-
-    <?= $form->field($model, 'no_bool') ?>
-
-    <?= $form->field($model, 'si_bool') ?>
 
     <?php // echo $form->field($model, 'na_bool') ?>
 

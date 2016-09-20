@@ -12,9 +12,6 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $id_supervisor
  * @property integer $id_certificacion
  * @property string $resultado
- * @property integer $si_bool
- * @property integer $no_bool
- * @property integer $na_bool
  * @property string $comentario
  * @property integer $created_at
  * @property integer $updated_at
@@ -80,7 +77,7 @@ class Resultado extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdCertificacion()
+    public function getCertificacion()
     {
         return $this->hasOne(Certificacion::className(), ['id' => 'id_certificacion']);
     }
@@ -88,7 +85,7 @@ class Resultado extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdSupervisor()
+    public function getSupervisor()
     {
         return $this->hasOne(Supervisor::className(), ['id' => 'id_supervisor']);
     }

@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Pregunta', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Agregar Pregunta', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -27,10 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'id_dept',
             'pregunta:ntext',
-            'no_bool',
-            'si_bool',
-            // 'na_bool',
-
+            
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

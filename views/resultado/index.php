@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ResultadoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -55,6 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Create Resultado', ['create'], ['class' => 'btn btn-success']) ?>
+        
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -66,13 +68,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_supervisor',
             'id_certificacion',
             'resultado',
-            //'si_bool',
-            // 'no_bool',
-            // 'na_bool',
-            // 'comentario:ntext',
-            // 'created_at',
-            // 'updated_at',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

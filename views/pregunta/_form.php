@@ -15,15 +15,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'id_dept')->textInput() ?>
 
     <?= $form->field($model, 'pregunta')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'no_bool')->textInput() ?>
-
-    <?= $form->field($model, 'si_bool')->textInput() ?>
-
-    <?= $form->field($model, 'na_bool')->textInput() ?>
-
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Agregar Pregunta' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
