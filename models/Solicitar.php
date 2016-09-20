@@ -19,6 +19,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $oficina_division
  * @property integer $fecha_empleado
  * @property string $razon_cese
+ * @property string $email
  * @property integer $created_at
  * @property integer $updated_at
  *
@@ -45,7 +46,7 @@ class Solicitar extends \yii\db\ActiveRecord
             [['id_certificacion', 'seguro_social', 'fecha_empleado', 'created_at', 'updated_at'], 'integer'],
             [['nombre', 'puesto', 'oficina_division'], 'string', 'max' => 56],
             [['apellido_m', 'apellido_p', 'nombramiento'], 'string', 'max' => 128],
-            [['razon_cese'], 'string', 'max' => 20],
+            [['razon_cese'], 'string', 'max' => 20], [['email'], 'string', 'max' => 128],
         ];
     }
 
@@ -66,6 +67,7 @@ class Solicitar extends \yii\db\ActiveRecord
             'oficina_division' => 'Oficina o división:',
             'fecha_empleado' => 'Fecha del cese o cambio:',
             'razon_cese' => 'Razón de cese:',
+            'email' => 'Email:',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

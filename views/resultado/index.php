@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Create Resultado', ['create'], ['class' => 'btn btn-success']) ?>
-        
+
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -68,6 +68,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_supervisor',
             'id_certificacion',
             'resultado',
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/Aloha
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
