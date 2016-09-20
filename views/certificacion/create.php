@@ -6,7 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Certificacion */
 
-$this->title = 'Create Certificacion';
+$this->title = 'Certificacion:';
+//$this->title = $model->certificacion->empleado->nombre;
 $this->params['breadcrumbs'][] = ['label' => 'Certificacions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -14,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
+    <?= $this->render('_formCert', [
         'model' => $model,
     ]) ?>
 

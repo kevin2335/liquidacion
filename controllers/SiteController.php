@@ -1,7 +1,5 @@
 <?php
-
 namespace app\controllers;
-
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -9,7 +7,6 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Empleado;
-
 class SiteController extends Controller
 {
     /**
@@ -37,11 +34,8 @@ class SiteController extends Controller
             ],
         ];
     }
-
     public function actionCreate()
     {
-
-
         /*$certificacion_id = 1;
         $empleado_id = $this->findEmpleado($certificacion_id);
         $empleado = 1;
@@ -52,7 +46,6 @@ class SiteController extends Controller
         }
         $this->render()*/
     }
-
     /**
      * @inheritdoc
      */
@@ -68,8 +61,6 @@ class SiteController extends Controller
             ],
         ];
     }
-
-
     /**
      * Displays homepage.
      *
@@ -80,9 +71,7 @@ class SiteController extends Controller
       $empleado = Empleado::find()->all();
       return $this->render('index',['empleado'=>$empleado]);
         //return $this->render('index');
-
     }
-
     /**
      * Login action.
      *
@@ -93,7 +82,6 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -102,7 +90,6 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-
     /**
      * Logout action.
      *
@@ -111,10 +98,8 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
-
     /**
      * Displays contact page.
      *
@@ -125,14 +110,12 @@ class SiteController extends Controller
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
-
             return $this->refresh();
         }
         return $this->render('contact', [
             'model' => $model,
         ]);
     }
-
     /**
      * Displays about page.
      *
@@ -142,7 +125,6 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-
     protected function findEmpleado($certificacion_id)
     {
         if (($model = Empleado::find()->where(['id_certificacion'] ->$certificacion_id)) !== null) {

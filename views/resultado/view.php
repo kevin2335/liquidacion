@@ -1,11 +1,8 @@
 <?php
-
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Resultado */
-
 //$this->title = $models[0]->certificacion->empleado->nombre;
 //echo "<pre>";print_r($models[0]->certificacion);echo "<pre>";die();
 $this->params['breadcrumbs'][] = ['label' => 'Resultados', 'url' => ['index']];
@@ -17,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $models[0]->id], ['class' => 'btn btn-primary']) ?>
-      <a href="?r=estado%2Fcreate"><button class="btn btn-default" type="submit">Aceptar</button></a>
+      <a href="?r=certificacion%2Fcreate"><button class="btn btn-default" type="submit">Aceptar</button></a>
         <?= Html::a('Delete', ['delete', 'id' => $models[0]->id], [
             'class' => 'btn btn-danger',
             'data' => [

@@ -1,8 +1,6 @@
 <?php
 use yii\helpers\Html;
-
 /* @var $this yii\web\View */
-
 $this->title = 'My Yii Application';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -39,13 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php foreach($empleado as $empleados)
         {
         echo $empleados->nombre;
-
         echo " ";
         echo $empleados->apellido_p;
         echo"<br>";
         //Html::Button('Firmar',['class'=>'btn btn-default'])
-
-
         }?>
       </div>
       <div class="panel-footer">
