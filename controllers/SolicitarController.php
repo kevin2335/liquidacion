@@ -68,8 +68,11 @@ class SolicitarController extends Controller
      {
          $solicitud = new Solicitar();
 
-         if ($solicitud->load(Yii::$app->request->post())) {
+         if ($solicitud->load(Yii::$app->request->post()) && $solicitud->validate()) {
               $solicitud->save(false);
+
+              $cert = new Certificacion();
+
               return $this->redirect(['view', 'id' => $solicitud->id]);
 
          } else {
@@ -77,6 +80,8 @@ class SolicitarController extends Controller
                 'model' => $solicitud,
              ]);
          }
+
+
      }
 
     /**
@@ -128,12 +133,5 @@ class SolicitarController extends Controller
         }
     }
 
-    protected function findCertificacion($cert_id)
-    {
-        if (($models = Solicitar::find()->where(['id_certificacion' => $cert_id])->all()) !== null) {
-            return $models;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
+
 }
