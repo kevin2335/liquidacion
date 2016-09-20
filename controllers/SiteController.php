@@ -143,12 +143,5 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    protected function findEmpleado($certificacion_id)
-    {
-        if (($model = Empleado::find()->where(['id_certificacion'] ->$certificacion_id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
+    
 }

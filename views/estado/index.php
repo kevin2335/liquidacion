@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1>Estado de la Solicitud</h1>
       </div>
       <div class="panel-body">
-<<<<<<< HEAD
+        
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             //'filterModel' => $searchModel,
@@ -38,9 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => 'yii\grid\ActionColumn'],
             ],
         ]); ?>
-=======
 
->>>>>>> refs/remotes/origin/dev
       </div>
       <div class="panel-footer">
         <button class="btn btn-default" type="submit"><a href="index.php?r=resultado%2Findex">Ver Resultados</a></button>
