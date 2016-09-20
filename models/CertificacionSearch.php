@@ -65,4 +65,31 @@ class CertificacionSearch extends Certificacion
 
         return $dataProvider;
     }
+    public function search2($params)
+    {
+        $query2 = Certificacion::find()->where(['id_empleado = 1']);
+
+        // add conditions that should always apply here
+
+        $certificaciones_firmar = new ActiveDataProvider([
+            'query' => $query2,
+        ]);
+
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $certificaciones_firmar;
+        }
+
+        // grid filtering conditions
+        $query2->andFilterWhere([
+            'id' => $this->id,
+            'id_empleado' => $this->id_empleado,
+            'id_estado' => $this->id_estado,
+        ]);
+
+        return $certificaciones_firmar;
+    }
 }

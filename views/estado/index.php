@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\data\ActiveDataProvider;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\EstadoSearch */
@@ -25,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1>Estado de la Solicitud</h1>
       </div>
       <div class="panel-body">
-        
+
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             //'filterModel' => $searchModel,
@@ -52,6 +53,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1>Lista de Solicitudes</h1>
       </div>
       <div class="panel-body">
+
+        <p>Solicitudes ya firmadas.</p>
+        <?php
+        echo ListView::widget(
+                'certificaciones_firmar' => $certificaciones_firmar,
+                'viewParams' => [
+                  'id',
+                ]);
+        ?>
 
       </div>
       <div class="panel-footer">
