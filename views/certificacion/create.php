@@ -7,7 +7,8 @@ use yii\helpers\Html;
 /* @var $model app\models\Certificacion */
 
 $this->title = 'Certificacion:';
-//$this->title = $model->certificacion->empleado->nombre;
+//echo "Cetificacion:". $_REQUEST['name'];
+//$this->title = $model->certificacion;
 $this->params['breadcrumbs'][] = ['label' => 'Certificacions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

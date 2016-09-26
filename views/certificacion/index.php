@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\CertificacionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Certificacions';
+$this->title = 'Certificacion';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="certificacion-index">
