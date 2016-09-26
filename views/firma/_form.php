@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_certificacion')->textInput() ?>
 
-    <?= $form->field($model, 'firma')->textInput() ?>
+    <?= $form->field($model, 'firma')->radioList([ 1=> 'Aceptar', 0=> 'Rechazar'])->label(False);?>
 
     <?= $form->field($model, 'fecha_firma')->textInput() ?>
 

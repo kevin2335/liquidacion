@@ -20,6 +20,8 @@ use Yii;
  */
 class Firma extends \yii\db\ActiveRecord
 {
+    const ACEPTADO = 1;
+    const RECHAZADO= 0;
     /**
      * @inheritdoc
      */
@@ -38,6 +40,7 @@ class Firma extends \yii\db\ActiveRecord
             [['id_supervisor', 'id_certificacion', 'firma', 'fecha_firma', 'created_at', 'updated_at'], 'integer'],
             [['id_supervisor'], 'exist', 'skipOnError' => true, 'targetClass' => Supervisor::className(), 'targetAttribute' => ['id_supervisor' => 'id']],
             [['id_certificacion'], 'exist', 'skipOnError' => true, 'targetClass' => Certificacion::className(), 'targetAttribute' => ['id_certificacion' => 'id']],
+            [['firma'], 'default','value' => self::ACEPTADO],
         ];
     }
 
@@ -64,12 +67,25 @@ class Firma extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Supervisor::className(), ['id' => 'id_supervisor']);
     }
-
     /**
      * @return \yii\db\ActiveQuery
      */
     public function getIdCertificacion()
     {
         return $this->hasOne(Certificacion::className(), ['id' => 'id_certificacion']);
+    }
+    /**
+     * @return string
+     */
+    public function getFirmaLable()
+    {
+        return ($this->firma == self::ACEPTADO)? 'Aceptado' : 'Rechazado';
+    }
+    /**
+     * @return BOOL
+     */
+    public function isApproved()
+    {
+        return ($this->firma == self::ACEPTADO);
     }
 }
