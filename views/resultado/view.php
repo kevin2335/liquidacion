@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $models[0]->id], ['class' => 'btn btn-primary']) ?>
-      <a href="?r=certificacion%2Fcreate"><button class="btn btn-default" type="submit">Aceptar</button></a>
+      <a href="index.php?r=certificacion%2Fupdate&id=2"><button class="btn btn-default" type="submit">Aceptar</button></a>
         <?= Html::a('Delete', ['delete', 'id' => $models[0]->id], [
             'class' => 'btn btn-danger',
             'data' => [

@@ -6,7 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Certificacion */
 //$this->title = $model->certificacion->empleado->nombre;
-$this->title = $model->id;
+
+$this->title = $model->empleado->nombre;
 $this->params['breadcrumbs'][] = ['label' => 'Certificacions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
         }?>
       </div>
       <div class="panel-footer">
-        <button class="btn btn-default" type="submit">Firmar</button>
+          <a href="index.php?r=resultado/create"><button class="btn btn-default" type="submit">Solicitar</button></a>
       </div>
     </div>
   </div>

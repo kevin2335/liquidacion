@@ -60,7 +60,6 @@ class Certificacion extends \yii\db\ActiveRecord
      */
     public function getEmpleado()
     {
-        return $this->hasOne(Empleado::className(), ['id' => 'name']);
         return $this->hasOne(Empleado::className(), ['id' => 'id_empleado']);
     }
 

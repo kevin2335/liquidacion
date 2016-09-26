@@ -12,7 +12,6 @@ use yii\behaviors\TimestampBehavior;
  * @property string $comentario
  * @property integer $created_at
  * @property integer $updated_at
- *
  * @property Certificacion $idCertificacion
  * @property Supervisor $idSupervisor
  */
