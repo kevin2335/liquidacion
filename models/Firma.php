@@ -68,14 +68,14 @@ class Firma extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdSupervisor()
+    public function getSupervisor()
     {
         return $this->hasOne(Supervisor::className(), ['id' => 'id_supervisor']);
     }
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdCertificacion()
+    public function getCertificacion()
     {
         return $this->hasOne(Certificacion::className(), ['id' => 'id_certificacion']);
     }

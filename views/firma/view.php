@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
       Gracias por Llenar el cuestionario
     </p>
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Update', ['update', 'id' => $model[0]->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model[0]->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => '¿Esta seguro de borrar esto?',
@@ -27,13 +27,15 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?= DetailView::widget([
-        'model' => $model,
+        'model' => $model[0],
         'attributes' => [
             'id',
             'id_supervisor',
             'id_certificacion',
             'firma',
             'fecha_firma',
+            'created_at',
+            'updated_at',
         ],
     ]) ?>
 

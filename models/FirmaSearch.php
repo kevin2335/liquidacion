@@ -61,7 +61,6 @@ class FirmaSearch extends Firma
             'id' => $this->id,
             'id_supervisor' => $this->id_supervisor,
             'id_certificacion' => $this->id_certificacion,
-        //    'firma' => $this->firma,
             'fecha_firma' => $this->fecha_firma,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
