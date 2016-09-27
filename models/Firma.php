@@ -13,7 +13,6 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $fecha_firma
  * @property integer $created_at
  * @property integer $updated_at
- *
  * @property Supervisor $idSupervisor
  * @property Certificacion $idCertificacion
  */

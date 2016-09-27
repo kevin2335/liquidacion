@@ -65,23 +65,26 @@ class FirmaController extends Controller
     public function actionCreate($cert_id = 1)
     {
 
-      $dept_id = 1;
-      $sup_id = $this->findCertificacion($dept_id);
-      $firmas = [];
-      foreach($sup_id as $key => $id_supervisor) {
-        $firmas []= new Firma();
-        $firmas[$key]->id_dept= $dept_id->id_dept;
-        $resultados[$key]->id_certificacion = $cert_id;
-        $firmas[$key]->id_supervisor = $sup_id->id_supervisor;
-      }
-      if (Model::loadMultiple($firmas, Yii::$app->request->post()) && Model::validateMultiple($firmas)) {
-          foreach ($firmas as $firma) {
-            $firma->save(false);
-          }
-            return $this->redirect(['view', 'id' => $cert_id]);
+      // $dept_id = 1;
+      // $sup_id = $this->findCertificacion($dept_id);
+      // $firmas = [];
+      // foreach($sup_id as $key => $id_supervisor) {
+      //   $firmas []= new Firma();
+      //   $firmas[$key]->id_dept= $dept_id->id_dept;
+      //   $resultados[$key]->id_certificacion = $cert_id;
+      //   $firmas[$key]->id_supervisor = $sup_id->id_supervisor;
+      // }
+      // if (Model::loadMultiple($firmas, Yii::$app->request->post()) && Model::validateMultiple($firmas)) {
+      //     foreach ($firmas as $firma) {
+      //       $firma->save(false);
+      //     }
+      $model = new Firma();
+
+      if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'firmas' => $firmas,
+                'model' => $model,
             ]);
         }
     }
@@ -127,30 +130,30 @@ class FirmaController extends Controller
      */
     protected function findModel($id)
     {
-        if (!empty(($model = Firma::find()->where(['id_certificacion' => $id])->all()))) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
-    protected function findCert($id)
-    {
         if (($model = Firma::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-    /**
-    *
-    *
-    */
-    protected function findCertificacion($id)
-    {
-        if (($model = Supervisor::find()->where(['id_dept' => $id])->all()) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
+    // protected function findCert($id)
+    // {
+    //     if (($model = Firma::findOne($id)) !== null) {
+    //         return $model;
+    //     } else {
+    //         throw new NotFoundHttpException('The requested page does not exist.');
+    //     }
+    // }
+    // /**
+    // *
+    // *
+    // */
+    // protected function findCertificacion($id)
+    // {
+    //     if (($model = Supervisor::find()->where(['id_dept' => $id])->all()) !== null) {
+    //         return $model;
+    //     } else {
+    //         throw new NotFoundHttpException('The requested page does not exist.');
+    //     }
+    // }
 }

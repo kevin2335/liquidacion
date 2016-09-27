@@ -10,7 +10,6 @@ use Yii;
  * @property integer $id
  * @property integer $id_empleado
  * @property integer $id_estado
- *
  * @property Empleado $idEmpleado
  * @property Estado $idEstado
  * @property Firmas[] $firmas

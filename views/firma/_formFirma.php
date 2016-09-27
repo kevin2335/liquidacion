@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
         <p><?= Html::encode($model->id_supervisor); ?></p>
 
-        <?= $form->field($model,  '['.$key.']firma')->radioList([ 1=> 'Aceptar', 0=> 'Rechazar'])->label(False);?>
+        <?= $form->field($model,  '['.$key.']firma')->radioList([ 1=> 'Aceptar', 0=> 'Rechazar'])->label(True);?>
   <?php endforeach; ?>
 
     <div class="form-group">

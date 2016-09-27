@@ -5,7 +5,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Firma */
 
-$this->title = $model->id;
+//$this->title = $model->id;
+$this->title = $model->empleado->nombre;
 $this->params['breadcrumbs'][] = ['label' => 'Firmas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -16,8 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
       Gracias por Llenar el cuestionario
     </p>
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model[0]->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model[0]->id], [
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => '¿Esta seguro de borrar esto?',
@@ -27,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?= DetailView::widget([
-        'model' => $model[0],
+        'model' => $model,
         'attributes' => [
             'id',
             'id_supervisor',
