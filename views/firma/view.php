@@ -1,5 +1,4 @@
 <?php
-
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -17,10 +16,25 @@ $this->params['breadcrumbs'][] = $this->title;
       Gracias por Llenar el cuestionario
     </p>
     <p>
-        <?= Html::a('Firmar', ['/firmar/create', 'id' => $model->certificacion_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => '¿Esta seguro de borrar esto?',
+                'method' => 'post',
+            ],
+        ]) ?>
     </p>
-    <p>
-        <?= Html::a('Rechazar', ['/firmar/deny', 'id' => $model->certificacion_id], ['class' => 'btn btn-primary']) ?>
-    </p>
+
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'id_supervisor',
+            'id_certificacion',
+            'firma',
+            'fecha_firma',
+        ],
+    ]) ?>
 
 </div>

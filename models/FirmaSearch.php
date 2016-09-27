@@ -18,7 +18,7 @@ class FirmaSearch extends Firma
     public function rules()
     {
         return [
-            [['id', 'id_supervisor', 'id_certificacion', 'firma', 'fecha_firma', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'id_supervisor', 'id_certificacion','firma', 'fecha_firma', 'created_at', 'updated_at'], 'integer'],
         ];
     }
 
@@ -61,11 +61,12 @@ class FirmaSearch extends Firma
             'id' => $this->id,
             'id_supervisor' => $this->id_supervisor,
             'id_certificacion' => $this->id_certificacion,
-            'firma' => $this->firma,
+        //    'firma' => $this->firma,
             'fecha_firma' => $this->fecha_firma,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
+        $query->andFilterWhere(['like', 'firma', $this->firma]);
 
         return $dataProvider;
     }

@@ -14,10 +14,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="resultado-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
         <?= Html::a('Create Resultado', ['create'], ['class' => 'btn btn-success']) ?>
-
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

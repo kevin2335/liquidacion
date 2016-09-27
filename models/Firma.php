@@ -1,9 +1,8 @@
 <?php
 
 namespace app\models;
-
 use Yii;
-
+use yii\behaviors\TimestampBehavior;
 /**
  * This is the model class for table "firmas".
  *
@@ -29,7 +28,6 @@ class Firma extends \yii\db\ActiveRecord
     {
         return 'firmas';
     }
-
     /**
      * @inheritdoc
      */
@@ -43,7 +41,6 @@ class Firma extends \yii\db\ActiveRecord
             [['firma'], 'default','value' => self::ACEPTADO],
         ];
     }
-
     /**
      * @inheritdoc
      */
@@ -59,7 +56,15 @@ class Firma extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
-
+    /**
+    * @yii\behaviors\TimestampBehavior
+    */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
     /**
      * @return \yii\db\ActiveQuery
      */

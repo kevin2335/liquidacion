@@ -1,8 +1,8 @@
 <?php
 
 namespace app\controllers;
-
 use Yii;
+use yii\base\Model;
 use app\models\Firma;
 use app\models\FirmaSearch;
 use yii\web\Controller;
