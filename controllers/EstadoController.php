@@ -38,12 +38,12 @@ class EstadoController extends Controller
     {
         $searchModel = new EstadoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $employee = Empleado::find()->all();
+        $empleado = Empleado::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'empleado' => $employee,
+            'empleado' => $empleado
         ]);
     }
 
@@ -67,9 +67,7 @@ class EstadoController extends Controller
     public function actionCreate()
     {
 
-        $employee = Empleado::find()->all();
 
-        return $this->render('index',['empleado'=>$employee]);
         /*$model = new Estado();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php
             $form = ActiveForm::begin();
             $i = 0;
-            foreach($employee as $employees):?>
+            foreach($empleado as $employees):?>
 
             <?=$form->field($employees, 'id')->radioList(array(1=>$employees->nombre), array('class' => 'i-checks'))->label(false);
               $i++;
