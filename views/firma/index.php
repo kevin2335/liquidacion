@@ -28,10 +28,11 @@ use yii\widgets\DetailView;
               ['class' => 'yii\grid\SerialColumn'],
 
               'id',
+              'id_dept',
               'id_supervisor',
               'id_certificacion',
               'firma',
-
+              
               ['class' => 'yii\grid\ActionColumn'],
           ],
       ]); ?>

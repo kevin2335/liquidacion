@@ -18,7 +18,7 @@ class FirmaSearch extends Firma
     public function rules()
     {
         return [
-            [['id', 'id_supervisor', 'id_certificacion','firma', 'fecha_firma', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'id_dept', 'id_supervisor', 'id_certificacion', 'firma', 'fecha_firma', 'created_at', 'updated_at'], 'integer'],
         ];
     }
 
@@ -59,6 +59,7 @@ class FirmaSearch extends Firma
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'id_dept' => $this->id_dept,
             'id_supervisor' => $this->id_supervisor,
             'id_certificacion' => $this->id_certificacion,
             'fecha_firma' => $this->fecha_firma,

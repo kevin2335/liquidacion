@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Firma */
 
 //$this->title = $model->id;
-$this->title = $model->empleado->nombre;
+//$this->title = $model->empleado->nombre;
 $this->params['breadcrumbs'][] = ['label' => 'Firmas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'id_supervisor',
+            'id_dept',
             'id_certificacion',
             'firma',
             'fecha_firma',
@@ -39,5 +40,4 @@ $this->params['breadcrumbs'][] = $this->title;
             'updated_at',
         ],
     ]) ?>
-
 </div>

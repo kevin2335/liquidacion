@@ -33,8 +33,9 @@ class Firma extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_supervisor', 'id_certificacion', 'firma'], 'required'],
-            [['id_supervisor', 'id_certificacion', 'firma', 'fecha_firma', 'created_at', 'updated_at'], 'integer'],
+            [['id_dept','id_supervisor', 'id_certificacion', 'firma'], 'required'],
+            [['id_dept','id_supervisor', 'id_certificacion', 'firma', 'fecha_firma', 'created_at', 'updated_at'], 'integer'],
+            [['id_dept'], 'exist', 'skipOnError' => true, 'targetClass' => Departamento::className(), 'targetAttribute' => ['id_dept' => 'id']],
             [['id_supervisor'], 'exist', 'skipOnError' => true, 'targetClass' => Supervisor::className(), 'targetAttribute' => ['id_supervisor' => 'id']],
             [['id_certificacion'], 'exist', 'skipOnError' => true, 'targetClass' => Certificacion::className(), 'targetAttribute' => ['id_certificacion' => 'id']],
             [['firma'], 'default','value' => self::ACEPTADO],
@@ -47,6 +48,7 @@ class Firma extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'Id:',
+            'id_dept' => 'Departamento Id:',
             'id_supervisor' => 'Supervisor Id:',
             'id_certificacion' => 'Certificacion Id:',
             'firma' => 'Firma:',
@@ -63,6 +65,13 @@ class Firma extends \yii\db\ActiveRecord
         return [
             TimestampBehavior::className(),
         ];
+    }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDepartamento()
+    {
+        return $this->hasOne(Departamento::className(), ['id' => 'id_dept']);
     }
     /**
      * @return \yii\db\ActiveQuery

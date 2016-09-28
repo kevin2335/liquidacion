@@ -37,7 +37,9 @@ class Supervisor extends \yii\db\ActiveRecord
             [['id_dept'], 'required'],
             [['id_dept'], 'integer'],
             [['nombre_sup', 'apellido_m_sup', 'apellido_p_sup'], 'string', 'max' => 12],
+            [['activo'], 'required'],
             [['id_dept'], 'exist', 'skipOnError' => true, 'targetClass' => Departamento::className(), 'targetAttribute' => ['id_dept' => 'id']],
+            [['activo'], 'exist', 'skipOnError' => true, 'targetAttribute' => ['activo']],
         ];
     }
 
@@ -52,6 +54,7 @@ class Supervisor extends \yii\db\ActiveRecord
             'nombre_sup' => 'Nombre del supervisor:',
             'apellido_m_sup' => 'Apellido materno del superrvisor:',
             'apellido_p_sup' => 'Apellido paterno del supervisor',
+            'activo'=>'Activo:',
         ];
     }
 

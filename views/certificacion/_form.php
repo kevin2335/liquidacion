@@ -11,7 +11,6 @@ use yii\widgets\ActiveForm;
 <div class="certificacion-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
     <?= $form->field($model, 'id_estado')->radioList([2 => 'Aceptar', 3 => 'Rechazar'])->label(False);?>
 
     <div class="form-group">

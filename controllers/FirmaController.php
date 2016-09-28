@@ -136,24 +136,25 @@ class FirmaController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-    // protected function findCert($id)
-    // {
-    //     if (($model = Firma::findOne($id)) !== null) {
-    //         return $model;
-    //     } else {
-    //         throw new NotFoundHttpException('The requested page does not exist.');
-    //     }
-    // }
-    // /**
-    // *
-    // *
-    // */
-    // protected function findCertificacion($id)
-    // {
-    //     if (($model = Supervisor::find()->where(['id_dept' => $id])->all()) !== null) {
-    //         return $model;
-    //     } else {
-    //         throw new NotFoundHttpException('The requested page does not exist.');
-    //     }
-    // }
+    protected function findCert($id)
+    {
+        if (($model = Firma::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    /**
+    *
+    *
+    */
+    protected function findCertificacion($id)
+    {
+        if (($model = Supervisor::find()->where(['id_dept' => $id])->all()) !== null) {//findOne($id)) !== null) {
+      //  find()->where(['id_dept' => $id])->all()) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
 }
