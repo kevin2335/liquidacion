@@ -1,5 +1,8 @@
 <?php
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use app\models\Empleado;
 
 /* @var $this yii\web\View */
 
@@ -39,18 +42,13 @@ $this->params['breadcrumbs'][] = $this->title;
         <h4>Solicitudes de los empleados a firmar: </h4>
         <?php
             //echo"<br>";
-            $i = 0;
-            foreach($empleado as $empleados):?>
-              <input type="radio" name=answer[<?php print $i; ?>]>
-              <?php
-              echo $empleados->nombre;
-              echo " ";
-              echo $empleados->apellido_p;
-              $i++;
-              echo"<br>";
-              //Html::Button('Firmar',['class'=>'btn btn-default'])
-            endforeach;
-        ?>
+           $form = ActiveForm::begin();
+                $i = 0;
+                foreach($empleado as $empleados):?>
+                  <?=$form->field($empleados, 'id')->radioList(array(1 => $empleados->nombre), array('class' => 'i-checks'))->label(false);
+                  $i++;
+                endforeach;
+            ActiveForm::end(); ?>
       </div>
       <div class="panel-footer">
         <a href="?r=resultado%2Fcreate"><button class="btn btn-default" type="submit">Firmar</button></a>

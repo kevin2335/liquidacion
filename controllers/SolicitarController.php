@@ -72,7 +72,9 @@ class SolicitarController extends Controller
               $solicitud->save(false);
 
               $cert = new Certificacion();
-              $cert->save();
+              $cert->id_empleado = $solicitud['id'];
+              $cert->id_estado = 1;
+              $cert->save(false);
 
               return $this->redirect(['view', 'id' => $solicitud->id]);
 
