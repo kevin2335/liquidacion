@@ -3,8 +3,9 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Resultado */
-//$this->title = $models[0]->certificacion->empleado->nombre;
+$this->title = $models[0]->certificacion->empleado->nombre;
 //echo "<pre>";print_r($models[0]->certificacion);echo "<pre>";die();
+//$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Resultados', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

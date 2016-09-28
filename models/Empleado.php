@@ -1,14 +1,11 @@
 <?php
 
 namespace app\models;
-
 use Yii;
-
 /**
  * This is the model class for table "empleado".
  *
  * @property integer $id
- * @property integer $id_certificacion
  * @property string $nombre
  * @property string $apellido_m
  * @property string $apellido_p
@@ -20,7 +17,6 @@ use Yii;
  * @property string $razon_cese
  * @property integer $created_at
  * @property integer $updated_at
- *
  * @property Certificacion[] $certificacions
  * @property EmpledoSupervisor[] $empledoSupervisors
  */
@@ -40,8 +36,8 @@ class Empleado extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_certificacion', 'nombre', 'apellido_m', 'apellido_p', 'seguro_social', 'nombramiento'], 'required'],
-            [['id_certificacion', 'seguro_social', 'fecha_empleado', 'created_at', 'updated_at'], 'integer'],
+            [['nombre', 'apellido_m', 'apellido_p', 'seguro_social', 'nombramiento'], 'required'],
+            [['seguro_social', 'fecha_empleado', 'created_at', 'updated_at'], 'integer'],
             [['nombre', 'puesto', 'oficina_division'], 'string', 'max' => 56],
             [['apellido_m', 'apellido_p', 'nombramiento'], 'string', 'max' => 128],
             [['razon_cese'], 'string', 'max' => 20],
@@ -55,7 +51,6 @@ class Empleado extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'id:',
-            'id_certificacion' => 'Id de certificacion:',
             'nombre' => 'Nombre:',
             'apellido_m' => 'Apellido Materno:',
             'apellido_p' => 'Apellido Paterno:',
@@ -81,8 +76,8 @@ class Empleado extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEmpledoSupervisors()
+    public function getSupervisors()
     {
-        return $this->hasMany(EmpledoSupervisor::className(), ['empleado_id' => 'id']);
+        return $this->hasMany(Supervisor::className(), ['id_empleado' => 'id']);
     }
 }

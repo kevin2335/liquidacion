@@ -22,6 +22,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'id_certificacion') ?>
 
     <?= $form->field($model, 'resultado') ?>
+    <?= $form->field($model, 'comentario') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

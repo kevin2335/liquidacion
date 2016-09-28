@@ -18,7 +18,7 @@ class EmpleadoSearch extends Empleado
     public function rules()
     {
         return [
-            [['id', 'id_certificacion', 'seguro_social', 'fecha_empleado', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'seguro_social', 'fecha_empleado', 'created_at', 'updated_at'], 'integer'],
             [['nombre', 'apellido_m', 'apellido_p', 'nombramiento', 'puesto', 'oficina_division', 'razon_cese'], 'safe'],
         ];
     }
@@ -60,7 +60,6 @@ class EmpleadoSearch extends Empleado
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'id_certificacion' => $this->id_certificacion,
             'seguro_social' => $this->seguro_social,
             'fecha_empleado' => $this->fecha_empleado,
             'created_at' => $this->created_at,

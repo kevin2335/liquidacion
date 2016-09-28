@@ -58,7 +58,7 @@ class ResultadoController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($cert_id = 1)
+    public function actionCreate($cert_id = 2)
     {
 
         $dept_id = 1;

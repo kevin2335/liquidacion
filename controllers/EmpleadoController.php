@@ -1,8 +1,8 @@
 <?php
 
 namespace app\controllers;
-
 use Yii;
+use yii\base\Model;
 use app\models\Empleado;
 use app\models\EmpleadoSearch;
 use yii\web\Controller;

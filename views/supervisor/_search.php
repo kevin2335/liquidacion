@@ -21,9 +21,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nombre_sup') ?>
 
-    <?= $form->field($model, 'apellido_m_sup') ?>
-
     <?= $form->field($model, 'apellido_p_sup') ?>
+
+    <?= $form->field($model, 'apellido_m_sup') ?>
 
     <?= $form->field($model, 'activo') ?>
 

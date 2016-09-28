@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Supervisor;
+use app\models\Empleado;
 use app\models\SupervisorSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

@@ -29,10 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'id_certificacion',
             'nombre',
-            'apellido_m',
             'apellido_p',
+            'apellido_m',
             'seguro_social',
             'nombramiento',
             'puesto',
