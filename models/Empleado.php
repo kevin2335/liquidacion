@@ -85,4 +85,13 @@ class Empleado extends \yii\db\ActiveRecord
     {
         return $this->hasMany(EmpledoSupervisor::className(), ['empleado_id' => 'id']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+        public function getfullName()
+        {
+            return $this->nombre.' '.$this->apellido_p.' '.$this->apellido_m;
+        }
+
 }
