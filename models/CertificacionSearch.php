@@ -62,7 +62,7 @@ class CertificacionSearch extends Certificacion
             'id_empleado' => $this->id_empleado,
             'id_estado' => $this->id_estado,
         ]);
-
+        //$query->andFilterWhere(['like', 'id_empleado', $this->empleado->name]);
         return $dataProvider;
     }
 }

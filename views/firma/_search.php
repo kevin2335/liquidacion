@@ -21,13 +21,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_certificacion') ?>
 
-    <?= $form->field($model, 'firma') ?>
-
-    <?= $form->field($model, 'fecha_firma') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'updated_at') ?>
+    <?php//= $form->field($model, 'fecha_firma') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

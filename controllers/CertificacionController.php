@@ -1,8 +1,8 @@
 <?php
 
 namespace app\controllers;
-
 use Yii;
+use yii\base\Model;
 use app\models\Certificacion;
 use app\models\CertificacionSearch;
 use yii\web\Controller;

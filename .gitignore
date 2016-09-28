@@ -30,3 +30,5 @@ controllers/SolicitarController.php
 views/solicitar/view.php
 views/solicitar/_form.php
 views/solicitar/view.php
+views/resultado/index.php
+views/resultado/index.php

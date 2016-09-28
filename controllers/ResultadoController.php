@@ -1,7 +1,5 @@
 <?php
-
 namespace app\controllers;
-
 use Yii;
 use yii\base\Model;
 use app\models\Resultado;
@@ -10,7 +8,6 @@ use app\models\ResultadoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
 /**
  * ResultadoController implements the CRUD actions for Resultado model.
  */
@@ -30,7 +27,6 @@ class ResultadoController extends Controller
             ],
         ];
     }
-
     /**
      * Lists all Resultado models.
      * @return mixed
@@ -45,17 +41,16 @@ class ResultadoController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
     /**
      * Displays a single Resultado model.
      * @param integer $id
       *@param integer $cert_id
      * @return mixed
      */
-    public function actionView($cert_id)
+    public function actionView($id)
     {
         return $this->render('view', [
-            'models' => $this->findModels($cert_id),
+            'models' => $this->findModels($id),
         ]);
     }
     /**
@@ -63,9 +58,10 @@ class ResultadoController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($cert_id = 2)
+    public function actionCreate($cert_id = 1)
     {
-        $dept_id = 4;
+
+        $dept_id = 1;
         $sup_id = 1;
         $preguntas = $this->findPreguntas($dept_id);
         $resultados = [];
@@ -75,9 +71,7 @@ class ResultadoController extends Controller
             $resultados[$key]->id_certificacion = $cert_id;
             $resultados[$key]->pregunta = $pregunta->pregunta;
         }
-
         if (Model::loadMultiple($resultados, Yii::$app->request->post()) && Model::validateMultiple($resultados)) {
-
             foreach ($resultados as $resultado) {
               $resultado->save(false);
             }
@@ -88,7 +82,6 @@ class ResultadoController extends Controller
             ]);
         }
     }
-
     /**
      * Updates an existing Resultado model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -98,7 +91,6 @@ class ResultadoController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -107,7 +99,6 @@ class ResultadoController extends Controller
             ]);
         }
     }
-
     /**
      * Deletes an existing Resultado model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -117,10 +108,8 @@ class ResultadoController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
         return $this->redirect(['index']);
     }
-
     /**
      * Finds the Resultado model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -143,13 +132,17 @@ class ResultadoController extends Controller
      * @return Resultado the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModels($cert_id)
+    protected function findModels($id)
     {
-        return Resultado::find()->where(['id' => $cert_id])->all();
+        if (!empty(($models = Resultado::find()->where(['id_certificacion' => $id])->all()))) {
+            return $models;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
-    protected function findCert($cert_id)
+    protected function findCert($id)
     {
-        if (($model = Resultado::findOne($cert_id)) !== null) {
+        if (($model = Resultado::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
@@ -157,7 +150,7 @@ class ResultadoController extends Controller
     }
     /**
      * Finds the Preguntas model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
+     * If the model is not found, a 404 HTTP exception will be thrown.-
      * @param integer $cert_id
      * @return Resultado the loaded model
      * @throws NotFoundHttpException if the model cannot be found

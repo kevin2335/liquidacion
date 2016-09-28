@@ -1,13 +1,14 @@
 <?php
 
 namespace app\controllers;
-
 use Yii;
+use yii\base\Model;
 use app\models\Firma;
 use app\models\FirmaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\Supervisor;
 
 /**
  * FirmaController implements the CRUD actions for Firma model.
@@ -61,11 +62,25 @@ class FirmaController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($cert_id = 1)
     {
-        $model = new Firma();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+      // $dept_id = 1;
+      // $sup_id = $this->findCertificacion($dept_id);
+      // $firmas = [];
+      // foreach($sup_id as $key => $id_supervisor) {
+      //   $firmas []= new Firma();
+      //   $firmas[$key]->id_dept= $dept_id->id_dept;
+      //   $resultados[$key]->id_certificacion = $cert_id;
+      //   $firmas[$key]->id_supervisor = $sup_id->id_supervisor;
+      // }
+      // if (Model::loadMultiple($firmas, Yii::$app->request->post()) && Model::validateMultiple($firmas)) {
+      //     foreach ($firmas as $firma) {
+      //       $firma->save(false);
+      //     }
+      $model = new Firma();
+
+      if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -121,4 +136,24 @@ class FirmaController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+    // protected function findCert($id)
+    // {
+    //     if (($model = Firma::findOne($id)) !== null) {
+    //         return $model;
+    //     } else {
+    //         throw new NotFoundHttpException('The requested page does not exist.');
+    //     }
+    // }
+    // /**
+    // *
+    // *
+    // */
+    // protected function findCertificacion($id)
+    // {
+    //     if (($model = Supervisor::find()->where(['id_dept' => $id])->all()) !== null) {
+    //         return $model;
+    //     } else {
+    //         throw new NotFoundHttpException('The requested page does not exist.');
+    //     }
+    // }
 }

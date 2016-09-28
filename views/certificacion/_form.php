@@ -12,9 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_empleado')->textInput() ?>
-
-    <?= $form->field($model, 'id_estado')->textInput() ?>
+    <?= $form->field($model, 'id_estado')->radioList([2 => 'Aceptar', 3 => 'Rechazar'])->label(False);?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

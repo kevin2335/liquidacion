@@ -11,7 +11,7 @@ use yii\widgets\ActiveForm;
 <div class="estado-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
+    <h2 "Certificación"
     <?= $form->field($model, 'estado')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">

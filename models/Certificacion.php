@@ -10,7 +10,6 @@ use Yii;
  * @property integer $id
  * @property integer $id_empleado
  * @property integer $id_estado
- *
  * @property Empleado $idEmpleado
  * @property Estado $idEstado
  * @property Firmas[] $firmas
@@ -20,6 +19,7 @@ class Certificacion extends \yii\db\ActiveRecord
 {
 
     public $is_rejected;
+    public $nameEmpleado;
     /**
      * @inheritdoc
      */
@@ -50,13 +50,14 @@ class Certificacion extends \yii\db\ActiveRecord
             'id' => 'Id:',
             'id_empleado' => 'Empleado Id:',
             'id_estado' => 'estado Id:',
+            'name'=>'Certificación:'
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdEmpleado()
+    public function getEmpleado()
     {
         return $this->hasOne(Empleado::className(), ['id' => 'id_empleado']);
     }
@@ -64,7 +65,7 @@ class Certificacion extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdEstado()
+    public function getEstado()
     {
         return $this->hasOne(Estado::className(), ['id' => 'id_estado']);
     }
@@ -83,6 +84,13 @@ class Certificacion extends \yii\db\ActiveRecord
     public function getResultados()
     {
         return $this->hasMany(Resultado::className(), ['id_certificacion' => 'id']);
+        // switch ($this->id_estado) {
+        //     case '2':
+        //         return "Aceptada";
+        //     break;
+        //     default:
+        //         return "Rechazada";
+        //     break;
     }
 
     public function getIsRejected()
