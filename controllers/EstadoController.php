@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Estado;
+use app\models\Empleado;
 use app\models\EstadoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -37,10 +38,12 @@ class EstadoController extends Controller
     {
         $searchModel = new EstadoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $employee = Empleado::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'empleado' => $employee,
         ]);
     }
 
@@ -63,7 +66,11 @@ class EstadoController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Estado();
+
+        $employee = Empleado::find()->all();
+
+        return $this->render('index',['empleado'=>$employee]);
+        /*$model = new Estado();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -71,7 +78,7 @@ class EstadoController extends Controller
             return $this->render('create', [
                 'model' => $model,
             ]);
-        }
+        }*/
     }
 
     /**

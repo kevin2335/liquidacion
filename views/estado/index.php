@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\gird\ListView;
+use yii\widgets\ActiveForm;
+use app\models\Empleado;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\EstadoSearch */
@@ -56,11 +57,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <p>Solicitudes ya firmadas.</p>
         <?php
-        echo ListView::widget(
-                'certificaciones_firmar' => $certificaciones_firmar,
-                'viewParams' => [
-                  'id',
-                ]);
+            $form = ActiveForm::begin();
+            $i = 0;
+            foreach($employee as $employees):?>
+
+            <?=$form->field($employees, 'id')->radioList(array(1=>$employees->nombre), array('class' => 'i-checks'))->label(false);
+              $i++;
+
+          endforeach;
+          ActiveForm::end();
         ?>
 
       </div>
