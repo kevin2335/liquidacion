@@ -41,11 +41,11 @@ class EmpleadoSolicitudSearch extends Empleado
      */
     public function search($params)
     {
-        $query = Empleado::find();
+        $query = Empleado::find()->innerJoin(['certificacion'])->where(['not in','id_estado',3]);
 
         // add conditions that should always apply here
 
-        $dataProvider = new ActiveDataProvider([
+        $empleado = new ActiveDataProvider([
             'query' => $query,
         ]);
 
@@ -54,7 +54,7 @@ class EmpleadoSolicitudSearch extends Empleado
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
-            return $dataProvider;
+            return $empleado;
         }
 
         // grid filtering conditions
@@ -74,6 +74,6 @@ class EmpleadoSolicitudSearch extends Empleado
             ->andFilterWhere(['like', 'oficina_division', $this->oficina_division])
             ->andFilterWhere(['like', 'razon_cese', $this->razon_cese]);
 
-        return $dataProvider;
+        return $empleado;
     }
 }

@@ -47,6 +47,7 @@ class EstadoController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'searchModel2' => $searchModel2,
             'empleado' => $empleado,
         ]);
     }
