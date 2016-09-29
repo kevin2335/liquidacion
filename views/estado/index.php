@@ -2,8 +2,6 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\widgets\ActiveForm;
-use app\models\Empleado;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\EstadoSearch */
@@ -57,15 +55,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <p>Solicitudes ya firmadas.</p>
         <?php
-            $form = ActiveForm::begin();
-            $i = 0;
-            foreach($empleado as $employees):?>
-
-            <?=$form->field($employees, 'id')->radioList(array(1=>$employees->nombre), array('class' => 'i-checks'))->label(false);
-              $i++;
-
-          endforeach;
-          ActiveForm::end();
+          echo GridView::widget([
+              'empleado' => $empleado,
+              'columns' => [
+                  'id',
+                ],
+              ]);
         ?>
 
       </div>

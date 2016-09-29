@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Empleado;
 use app\models\EmpleadoSearch;
+use app\models\EmpleadoSolicitudSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

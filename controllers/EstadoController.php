@@ -4,9 +4,12 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Estado;
-use app\models\Empleado;
 use app\models\EstadoSearch;
+use app\models\Empleado;
+use app\models\EmpleadoSearch;
+use app\models\EmpleadoSolicitudSearch;
 use yii\web\Controller;
+use yii\web\EmpleadoController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -38,12 +41,13 @@ class EstadoController extends Controller
     {
         $searchModel = new EstadoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $empleado = Empleado::find()->all();
+        $searchModel2 = new EmpleadoSolicitudSearch();
+        $empleado = $searchModel2->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'empleado' => $empleado
+            'empleado' => $empleado,
         ]);
     }
 
