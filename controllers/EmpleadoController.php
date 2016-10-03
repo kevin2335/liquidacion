@@ -41,6 +41,7 @@ class EmpleadoController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'dept_id' => $dept_id,
         ]);
     }
 

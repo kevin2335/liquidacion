@@ -22,10 +22,10 @@ use yii\widgets\DetailView;
           <?= Html::a('Create Firma', ['create'], ['class' => 'btn btn-success']) ?>
       </p>
       <?= GridView::widget([
-          'dataProvider' => $dataProvider,
-          'filterModel' => $searchModel,
+         'dataProvider' => $dataProvider,
+          //'filterModel' => $searchModel,
           'columns' => [
-              ['class' => 'yii\grid\SerialColumn'],
+              //['class' => 'yii\grid\SerialColumn'],
 
               'id',
               'id_supervisor',
