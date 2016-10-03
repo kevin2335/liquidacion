@@ -12,6 +12,11 @@ $this->title = 'Resultados';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="resultado-index">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 align ="center">Resultados</h1>
+    </div>
+    <div class="panel-body">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

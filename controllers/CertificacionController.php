@@ -37,10 +37,12 @@ class CertificacionController extends Controller
     {
         $searchModel = new CertificacionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $certificaciones_firmar = $dataProvider->search(id_dept);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'certificaciones_firmar' => $certificaciones_firmar,
         ]);
     }
 

@@ -5,7 +5,11 @@ namespace app\controllers;
 use Yii;
 use app\models\Estado;
 use app\models\EstadoSearch;
+use app\models\Empleado;
+use app\models\EmpleadoSearch;
+use app\models\EmpleadoSolicitudSearch;
 use yii\web\Controller;
+use yii\web\EmpleadoController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -37,10 +41,14 @@ class EstadoController extends Controller
     {
         $searchModel = new EstadoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $searchModel2 = new EmpleadoSolicitudSearch();
+        $empleado = $searchModel2->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'searchModel2' => $searchModel2,
+            'empleado' => $empleado,
         ]);
     }
 
@@ -63,7 +71,9 @@ class EstadoController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Estado();
+
+
+        /*$model = new Estado();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -71,7 +81,7 @@ class EstadoController extends Controller
             return $this->render('create', [
                 'model' => $model,
             ]);
-        }
+        }*/
     }
 
     /**
