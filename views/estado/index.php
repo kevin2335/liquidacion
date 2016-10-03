@@ -60,6 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
               'columns' => [
                   'nombre',
                   'apellido_p',
+                  'apellido_m',
                 ],
               ]);
         ?>
