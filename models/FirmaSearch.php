@@ -18,7 +18,7 @@ class FirmaSearch extends Firma
     public function rules()
     {
         return [
-            [['id', 'id_dept', 'id_supervisor', 'id_certificacion', 'firma', 'fecha_firma', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'id_dept', 'id_supervisor', 'id_certificacion', 'firma','created_at', 'updated_at'], 'integer'],
         ];
     }
 
@@ -38,10 +38,16 @@ class FirmaSearch extends Firma
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $dept_id = NULL, $id_cert = NULL, $id_sup = NULL)
     {
-        $query = Firma::find();
-
+        if ($dept_id !== NULL && $id_cert !== NULL && $id_sup !== NULL) {
+            $query = Firma::find()->where(['id_dept' => $dept_id])
+                                  ->andWhere(['id_supervisor' => $id_sup])
+                                  ->andWhere(['id_certificacion' => $id_cert])
+                                  ->with(['supervisor']);
+        } else {
+            $query = Firma::find();
+        }
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -62,7 +68,6 @@ class FirmaSearch extends Firma
             'id_dept' => $this->id_dept,
             'id_supervisor' => $this->id_supervisor,
             'id_certificacion' => $this->id_certificacion,
-            'fecha_firma' => $this->fecha_firma,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);

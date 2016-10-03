@@ -1,4 +1,5 @@
 <?php
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 /* @var $this yii\web\View */
@@ -14,9 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $models[0]->id], ['class' => 'btn btn-primary']) ?>
-      <a href="index.php?r=firma%2Fcreate"><button class="btn btn-default" type="submit">Aceptar</button></a>
-        <?= Html::a('Delete', ['delete', 'id' => $models[0]->id], [
+        <?= Html::a('Update', ['update', 'id' => $id], ['class' => 'btn btn-primary']) ?>
+
+        <a href="<?= Url::to(['firma/create', 'id' => $id]) ?>" class="btn btn-default">Aceptar <span class="glyphicon glyphicon-check"></span></a>
+
+        <?= Html::a('Delete', ['delete', 'id' => $models[0]->id],[
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => '¿Esta seguro de borrar esto?',
@@ -24,18 +27,15 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
+    <?php foreach ($models as $model): ?>
     <?= DetailView::widget([
-        'model' => $models[0],
+        'model' => $model,
         'attributes' => [
-            'id',
-            'id_supervisor',
-            'id_certificacion',
             'resultado',
             'comentario:ntext',
-            'created_at',
-            'updated_at',
+            'created_at:date',
+            'updated_at:date',
         ],
     ]) ?>
-
+<?php endforeach;?>
 </div>

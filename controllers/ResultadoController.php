@@ -51,6 +51,7 @@ class ResultadoController extends Controller
     {
         return $this->render('view', [
             'models' => $this->findModels($id),
+            'id' => $id,
         ]);
     }
     /**
@@ -60,7 +61,7 @@ class ResultadoController extends Controller
      */
     public function actionCreate($cert_id = 2)
     {
-
+      //  $email = Yii::$app->user->identity->email;
         $dept_id = 1;
         $sup_id = 1;
         $preguntas = $this->findPreguntas($dept_id);
@@ -88,14 +89,14 @@ class ResultadoController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id = 2)
     {
-        $model = $this->findModel($id);
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $models = $this->findModels($id);
+          if (Model::loadMultiple($models, Yii::$app->request->post()) && Model::validateMultiple($models)) {
+            return $this->redirect(['view', 'id' => $models[0]->id_certificacion]);
         } else {
-            return $this->render('update', [
-                'model' => $model,
+            return $this->render('create', [
+                'resultados' => $models,
             ]);
         }
     }
