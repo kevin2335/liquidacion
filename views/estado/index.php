@@ -49,23 +49,21 @@ $this->params['breadcrumbs'][] = $this->title;
   <div class="col-sm-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h1>Lista de Solicitudes</h1>
+        <h1>Solicitudes ya firmadas</h1>
       </div>
       <div class="panel-body">
 
-        <p>Solicitudes ya firmadas.</p>
+
         <?php
           echo GridView::widget([
-              'empleado' => $empleado,
+              'dataProvider' => $empleado,
               'columns' => [
-                  'id',
+                  'nombre',
+                  'apellido_p',
                 ],
               ]);
         ?>
 
-      </div>
-      <div class="panel-footer">
-        <button class="btn btn-default" type="submit"><a href="index.php?r=pregunta%2Findex">Firmar</a></button>
       </div>
     </div>
   </div>

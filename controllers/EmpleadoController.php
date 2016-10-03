@@ -38,10 +38,14 @@ class EmpleadoController extends Controller
     {
         $searchModel = new EmpleadoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $searchModel2 = new EmpleadoSolicitudSearch();
+        $empleado = $searchModel2->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'searchModel2' => $searchModel2,
+            'empleado' => $empleado,
         ]);
     }
 
