@@ -41,7 +41,7 @@ class EmpleadoSolicitudSearch extends Empleado
      */
     public function search($params)
     {
-        $query = (new \yii\db\Query())->select(['c.id_estado, e.nombre'])->from('certificacion c, empleado e')->where(['c.id_empleado' => 'e.id']);
+        $query = Empleado::find()->innerJoin(['certificacion'])->where(['and', 'certificacion.id_estado = 3', 'certificacion.id_empleado = empleado.id']);
 
         // add conditions that should always apply here
 
