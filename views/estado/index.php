@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
       </div>
       <div class="panel-footer">
-        <button class="btn btn-default" type="submit"><a href="index.php?r=resultado%2Findex">Ver Resultados</a></button>
+        <?= Html::a('Ver Resultados', ['resultado/index'],['class' => 'btn btn-info']);?>
       </div>
     </div>
   </div>
@@ -58,9 +58,8 @@ $this->params['breadcrumbs'][] = $this->title;
           echo GridView::widget([
               'dataProvider' => $empleado,
               'columns' => [
-                  'nombre',
-                  'apellido_p',
-                  'apellido_m',
+                  'Nombre',
+
                 ],
               ]);
         ?>
