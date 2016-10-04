@@ -41,7 +41,7 @@ class CertificacionDeptSearch extends Certificacion
      */
     public function search($params, $estado_id = 1)
     {
-        $query = Empleado::find()->innerJoin(['certificacion'])->where(['not in','id_estado', $estado_id]);
+        $query = Empleado::find()->innerJoin(['certificacion'])->where(['and','certificacion.id_estado =  1','certificacion.id_empleado = 1', 'certificacion.id_empleado = empleado.id']);
 
 
         // add conditions that should always apply here
