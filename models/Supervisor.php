@@ -20,6 +20,8 @@ use Yii;
  */
 class Supervisor extends \yii\db\ActiveRecord
 {
+  const ACTIVO = 1;
+  const INACTIVO = 0;
     /**
      * @inheritdoc
      */
@@ -39,7 +41,7 @@ class Supervisor extends \yii\db\ActiveRecord
             [['nombre_sup', 'apellido_m_sup', 'apellido_p_sup'], 'string', 'max' => 12],
             [['activo'], 'required'],
             [['id_dept'], 'exist', 'skipOnError' => true, 'targetClass' => Departamento::className(), 'targetAttribute' => ['id_dept' => 'id']],
-            [['activo'], 'exist', 'skipOnError' => true, 'targetAttribute' => ['activo']],
+            [['activo'], 'default','value' =>self::ACTIVO],
         ];
     }
 
@@ -61,10 +63,10 @@ class Supervisor extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    // public function getEmpleadoSupervisors()
-    // {
-    //     return $this->hasMany(Supervisor::className(), ['supervisor_id' => 'id']);
-    // }
+    public function getActivoLabel()
+    {
+        return ($this->activo == self::ACTIVO)? '<span class="label label-success">Activo</span>' : '<span class="label label-danger">Inactivo</span>';
+    }
 
     /**
      * @return \yii\db\ActiveQuery
