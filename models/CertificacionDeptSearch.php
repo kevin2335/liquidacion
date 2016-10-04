@@ -39,10 +39,20 @@ class CertificacionDeptSearch extends Certificacion
      *
      * @return ActiveDataProvider
      */
-    public function search($params, $estado_id = 1)
+    public function search($params, $estado_id = 1,$dept_id = 1,$id_emp = 1)
     {
-        $query = Empleado::find()->innerJoin(['certificacion'])->where(['and','certificacion.id_estado =  1','certificacion.id_empleado = 1', 'certificacion.id_empleado = empleado.id']);
+        //$query = Empleado::find()->innerJoin(['certificacion'])
+        //->where(['and','certificacion.id_estado =  1','certificacion.id_empleado = 1', 'certificacion.id_empleado = empleado.id']);
 
+        if ($dept_id !== NULL && $estado_id !== NULL && $id_emp !== NULL) {
+            $query = Empleado::find()->innerJoin(['certificacion'])
+                                  ->where(['id_dept' => $dept_id])
+                                  ->andwhere(['id_empleado' => $id_emp])
+                                  ->andWhere(['id_estado' => $estado_id]);
+                                  //->with(['empleado']);
+        } else {
+            $query = Empleado::find();
+        }
 
         // add conditions that should always apply here
 

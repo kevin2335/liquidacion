@@ -19,19 +19,6 @@ $this->title = 'Firmar';
       <h2> <small>"Certificar que la labor del funcionario esté al día y que haya entregado, registro de notas(si aplica), llaves, equipo u propiedad universitaria y entre otros."</small></h2>
 
       <?= GridView::widget([
-<<<<<<< HEAD
-         'dataProvider' => $dataProvider,
-          //'filterModel' => $searchModel,
-          'columns' => [
-              //['class' => 'yii\grid\SerialColumn'],
-
-              'id',
-              'id_supervisor',
-              'id_certificacion',
-              'firma',
-
-              ['class' => 'yii\grid\ActionColumn'],
-=======
           'dataProvider' => $dataProvider,
           //'filterModel' => $searchModel,
           'columns' => [
@@ -51,7 +38,7 @@ $this->title = 'Firmar';
                       return Html::a('Ver Solicitud', ['view', 'id' => $model->id_certificacion],['class' => 'btn btn-default btn-xs']);
                   }
               ],
->>>>>>> refs/remotes/origin/dev
+
           ],
       ]); ?>
     </div>

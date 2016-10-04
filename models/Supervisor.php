@@ -53,7 +53,7 @@ class Supervisor extends \yii\db\ActiveRecord
             'id_dept' => 'Departamento Id:',
             'nombre_sup' => 'Nombre del supervisor:',
             'apellido_m_sup' => 'Apellido materno del superrvisor:',
-            'apellido_p_sup' => 'Apellido paterno del supervisor',
+            'apellido_p_sup' => 'Apellido paterno del supervisor:',
             'activo'=>'Activo:',
         ];
     }

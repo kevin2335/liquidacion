@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1 align ="center">Recursos Humanos</h1>
       </div>
       <div class="panel-footer">
-        <a href="?r=estado%2Findex"><button class="btn btn-default btn-xs" type="submit" >Ver Solicitudes</button></a>
+        <?= Html::a('Ver solicitud', ['estado/index'],['class' => 'btn btn-info']);?>
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h4>Solicitar una certificación de relevo de responsabilidad de empleado</h4>
       </div>
       <div class="panel-footer">
-        <a href="?r=solicitar%2Fcreate"><button class="btn btn-default" type="submit">Solicitar</button></a>
+        <?= Html::a('Solicitar', ['solicitar/create'],['class' => 'btn btn-info']);?>
       </div>
     </div>
   </div>
@@ -45,19 +45,23 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'columns' => [
-                'id',
-                'nombre',
-                'apellido_p',
-                'apellido_m',
-                //'fecha_empleado',
+                ['class' => 'yii\grid\SerialColumn'],
+                //'id',
+                'Solicitante',
 
-                ['class' => 'yii\grid\ActionColumn'],
+                [
+                    'label' => 'Firmar',
+                    'format' => 'html',
+                    'value' => function ($model) {
+                        return Html::a('Firmar', ['resultado/create', 'id' => $model->id],['class' => 'btn btn-info btn-xs']);
+                    }
+                ],
+
               ],
         ]) ?>
 
       </div>
       <div class="panel-footer">
-        <a href="?r=resultado%2Fcreate"><button class="btn btn-default" type="submit">Firmar</button></a>
       </div>
     </div>
   </div>

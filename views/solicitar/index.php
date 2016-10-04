@@ -28,14 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'nombre',
             'apellido_m',
             'apellido_p',
-            // 'seguro_social',
-            // 'nombramiento',
-            // 'puesto',
-            // 'oficina_division',
-            // 'fecha_empleado',
-            // 'razon_cese',
-            // 'created_at',
-            // 'updated_at',
+          
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

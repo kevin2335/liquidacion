@@ -84,7 +84,7 @@ class Empleado extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-        public function getfullName()
+        public function getSolicitante()
         {
             return $this->nombre.' '.$this->apellido_p.' '.$this->apellido_m;
         }
