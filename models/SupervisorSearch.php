@@ -19,7 +19,7 @@ class SupervisorSearch extends Supervisor
     {
         return [
             [['id', 'id_dept'], 'integer'],
-            [['nombre_sup', 'apellido_m_sup', 'apellido_p_sup'], 'safe'],
+            [['nombre_sup', 'apellido_m_sup', 'apellido_p_sup','activo'], 'safe'],
         ];
     }
 

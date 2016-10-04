@@ -1,9 +1,7 @@
 <?php
 
 namespace app\models;
-
 use Yii;
-
 /**
  * This is the model class for table "empleado".
  *
@@ -19,7 +17,6 @@ use Yii;
  * @property string $razon_cese
  * @property integer $created_at
  * @property integer $updated_at
- *
  * @property Certificacion[] $certificacions
  * @property EmpledoSupervisor[] $empledoSupervisors
  */
@@ -79,9 +76,9 @@ class Empleado extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEmpledoSupervisors()
+    public function getSupervisors()
     {
-        return $this->hasMany(EmpledoSupervisor::className(), ['empleado_id' => 'id']);
+        return $this->hasMany(Supervisor::className(), ['id_empleado' => 'id']);
     }
 
     /**

@@ -14,9 +14,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'apellido_m')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'apellido_p')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'apellido_m')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'seguro_social')->textInput() ?>
 

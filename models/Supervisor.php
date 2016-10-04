@@ -37,7 +37,9 @@ class Supervisor extends \yii\db\ActiveRecord
             [['id_dept'], 'required'],
             [['id_dept'], 'integer'],
             [['nombre_sup', 'apellido_m_sup', 'apellido_p_sup'], 'string', 'max' => 12],
+            [['activo'], 'required'],
             [['id_dept'], 'exist', 'skipOnError' => true, 'targetClass' => Departamento::className(), 'targetAttribute' => ['id_dept' => 'id']],
+            [['activo'], 'exist', 'skipOnError' => true, 'targetAttribute' => ['activo']],
         ];
     }
 
@@ -52,16 +54,17 @@ class Supervisor extends \yii\db\ActiveRecord
             'nombre_sup' => 'Nombre del supervisor:',
             'apellido_m_sup' => 'Apellido materno del superrvisor:',
             'apellido_p_sup' => 'Apellido paterno del supervisor',
+            'activo'=>'Activo:',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEmpleadoSupervisors()
-    {
-        return $this->hasMany(EmpleadoSupervisor::className(), ['supervisor_id' => 'id']);
-    }
+    // public function getEmpleadoSupervisors()
+    // {
+    //     return $this->hasMany(Supervisor::className(), ['supervisor_id' => 'id']);
+    // }
 
     /**
      * @return \yii\db\ActiveQuery
@@ -85,5 +88,13 @@ class Supervisor extends \yii\db\ActiveRecord
     public function getIdDept()
     {
         return $this->hasOne(Departamento::className(), ['id' => 'id_dept']);
+    }
+    /**
+    * Concatena el nombre con los apellidos
+    * @return string
+    */
+    public function getNombreCompleto()
+    {
+        return $this->nombre_sup.' '.$this->apellido_p_sup.' '.$this->apellido_m_sup;
     }
 }

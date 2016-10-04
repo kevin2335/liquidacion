@@ -11,14 +11,10 @@ use yii\widgets\ActiveForm;
 <div class="firma-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?php foreach ($firmas as $key => $model): ?>
-
-        <p><?= Html::encode($model->id_supervisor); ?></p>
-
-        <?= $form->field($model,  '['.$key.']firma')->radioList([ 1=> 'Aceptar', 0=> 'Rechazar'])->label(True);?>
-  <?php endforeach; ?>
-
+    <?= $form->field($model, 'id_dept')->textInput() ?>
+    <?= $form->field($model, 'id_supervisor')->textInput() ?>
+    <?= $form->field($model, 'id_certificacion')->textInput() ?>
+    <?= $form->field($model, 'firma')->radioList([1 => 'Aceptar', 0 => 'Rechazar'])->label(False);?>
     <div class="form-group">
         <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
 
