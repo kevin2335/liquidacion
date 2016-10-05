@@ -41,7 +41,7 @@ class ResultadoController extends Controller
         $searchModel = new ResultadoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $searchModel2 = new ResultadoOneSearch();
-        $resultado = $searchModel2->search(Yii::$app->request->queryParams);
+        $resultado = $searchModel2->search(Yii::$app->request->queryParams, Yii::$app->request->get('id_certificacion'));
 
         return $this->render('index', [
             'searchModel' => $searchModel,
