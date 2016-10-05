@@ -7,6 +7,7 @@ use yii\base\Model;
 use app\models\Resultado;
 use app\models\Pregunta;
 use app\models\ResultadoSearch;
+use app\models\ResultadoOneSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -39,10 +40,14 @@ class ResultadoController extends Controller
     {
         $searchModel = new ResultadoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $searchModel2 = new ResultadoOneSearch();
+        $resultado = $searchModel2->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'searchModel2' => $searchModel2,
+            'resultado' => $resultado,
         ]);
     }
 

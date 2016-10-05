@@ -34,15 +34,21 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 //'id',
                 'estado',
-
+                [
+                    'label' => 'Ver resultados',
+                    'format' => 'html',
+                    'value' => function ($model) {
+                        return Html::a('Resultado', ['resultado/index', 'id_certificacion' => $model->id],['class' => 'btn btn-info btn-xs']);
+                    }
+                ],
                 //['class' => 'yii\grid\ActionColumn'],
             ],
-            return Html::a('Ver Resultados', ['resultado/index'],['class' => 'btn btn-info']);
+          //return Html::a('Ver Resultados', ['resultado/index'],['class' => 'btn btn-info']);
         ]); ?>
 
       </div>
       <div class="panel-footer">
-        <?= Html::a('Ver Resultados', ['resultado/index'],['class' => 'btn btn-info']);?>
+
       </div>
     </div>
   </div>
@@ -59,7 +65,8 @@ $this->params['breadcrumbs'][] = $this->title;
           echo GridView::widget([
               'dataProvider' => $empleado,
               'columns' => [
-                  'Nombre',
+                  ['class' => 'yii\grid\SerialColumn'],
+                  'Solicitante',
 
                 ],
               ]);
