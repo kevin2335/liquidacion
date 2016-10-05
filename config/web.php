@@ -1,4 +1,6 @@
 <?php
+use kartik\datecontrol\Module;
+use kartik\widgets\DatePicker;
 
 $params = require(__DIR__ . '/params.php');
 
@@ -46,7 +48,45 @@ $config = [
             ],
         ],
         */
+        'formatter' => [
+            'dateFormat' => 'php:d/M/Y',
+            'locale' => 'en-US',
+            'timeZone' =>  'America/Puerto_Rico',
+       ],
     ],
+  'modules' => [
+    'datecontrol' =>  [
+        'class' => 'kartik\datecontrol\Module',
+        'displaySettings' => [
+            Module::FORMAT_DATE => 'php:d/M/Y',
+            Module::FORMAT_TIME => 'php:h:i:s A',
+            Module::FORMAT_DATETIME => 'php:d/M/Y h:i:s A',
+        ],
+        'saveSettings' => [
+            Module::FORMAT_DATE => 'php:U', // saves as unix timestamp
+            Module::FORMAT_TIME => 'php:U',
+            Module::FORMAT_DATETIME => 'php:U',
+        ],
+        'displayTimezone' => $params['timezone'],
+        'saveTimezone' => $params['timezone'],
+        'autoWidget' => true,
+        'ajaxConversion' => true,
+        'autoWidgetSettings' => [
+            Module::FORMAT_DATE => ['type' => 2, 'pluginOptions'=>['autoclose'=>true]], // example
+            Module::FORMAT_DATETIME => [], // setup if needed
+            Module::FORMAT_TIME => [], // setup if needed
+        ],
+        'widgetSettings' => [
+            Module::FORMAT_DATE => [
+                'class' => 'yii\jui\DatePicker', // example
+                'options' => [
+                    'dateFormat' => 'php:d-M-Y',
+                    'options' => ['class'=>'form-control'],
+                ]
+            ]
+        ]
+    ],
+ ],
     'params' => $params,
 ];
 

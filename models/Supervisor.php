@@ -20,6 +20,8 @@ use Yii;
  */
 class Supervisor extends \yii\db\ActiveRecord
 {
+  const ACTIVO = 1;
+  const INACTIVO = 0;
     /**
      * @inheritdoc
      */
@@ -38,6 +40,10 @@ class Supervisor extends \yii\db\ActiveRecord
             [['id_dept'], 'integer'],
             [['nombre_sup', 'apellido_m_sup', 'apellido_p_sup'], 'string', 'max' => 12],
             [['id_dept'], 'exist', 'skipOnError' => true, 'targetClass' => Departamento::className(), 'targetAttribute' => ['id_dept' => 'id']],
+<<<<<<< HEAD
+=======
+            [['activo'], 'default','value' =>self::ACTIVO],
+>>>>>>> refs/remotes/origin/Aloha
         ];
     }
 
@@ -51,16 +57,27 @@ class Supervisor extends \yii\db\ActiveRecord
             'id_dept' => 'Departamento Id:',
             'nombre_sup' => 'Nombre del supervisor:',
             'apellido_m_sup' => 'Apellido materno del superrvisor:',
+<<<<<<< HEAD
             'apellido_p_sup' => 'Apellido paterno del supervisor',
+=======
+            'apellido_p_sup' => 'Apellido paterno del supervisor:',
+            'activo'=>'Activo:',
+>>>>>>> refs/remotes/origin/Aloha
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
+<<<<<<< HEAD
     public function getEmpleadoSupervisors()
     {
         return $this->hasMany(EmpleadoSupervisor::className(), ['supervisor_id' => 'id']);
+=======
+    public function getActivoLabel()
+    {
+        return ($this->activo == self::ACTIVO)? '<span class="label label-success">Activo</span>' : '<span class="label label-danger">Inactivo</span>';
+>>>>>>> refs/remotes/origin/Aloha
     }
 
     /**

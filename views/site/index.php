@@ -1,5 +1,12 @@
 <?php
 use yii\helpers\Html;
+<<<<<<< HEAD
+=======
+use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use yii\grid\GridView;
+//use app\models\Empleado;
+>>>>>>> refs/remotes/origin/Aloha
 
 /* @var $this yii\web\View */
 
@@ -13,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1 align ="center">Recursos Humanos</h1>
       </div>
       <div class="panel-footer">
-        <button class="btn btn-default btn-xs" type="submit" >Ver Solicitudes</button>
+        <?= Html::a('Ver solicitud', ['estado/index'],['class' => 'btn btn-info']);?>
       </div>
     </div>
   </div>
@@ -26,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h4>Solicitar una certificación de relevo de responsabilidad de empleado</h4>
       </div>
       <div class="panel-footer">
-        <a href="?r=solicitar%2Fcreate"><button class="btn btn-default" type="submit">Solicitar</button></a>
+        <?= Html::a('Solicitar', ['solicitar/create'],['class' => 'btn btn-info']);?>
       </div>
     </div>
   </div>
@@ -37,23 +44,31 @@ $this->params['breadcrumbs'][] = $this->title;
       </div>
       <div class="panel-body">
         <h4>Solicitudes de los empleados a firmar: </h4>
-        <?php
-            //echo"<br>";
-            $i = 0;
-            foreach($empleado as $empleados):?>
-              <input type="radio" name=answer[<?php print $i; ?>]>
-              <?php
-              echo $empleados->nombre;
-              echo " ";
-              echo $empleados->apellido_p;
-              $i++;
-              echo"<br>";
-              //Html::Button('Firmar',['class'=>'btn btn-default'])
-            endforeach;
-        ?>
+
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
+                //'id',
+                'Solicitante',
+
+                [
+                    'label' => 'Firmar',
+                    'format' => 'html',
+                    'value' => function ($model) {
+                        return Html::a('Firmar', ['resultado/create', 'id' => $model->id, 'id_dept' => $model->id,'id_certificacion' => $model->id],['class' => 'btn btn-info btn-xs']);
+                    }
+                ],
+
+              ],
+        ]) ?>
+
       </div>
       <div class="panel-footer">
+<<<<<<< HEAD
         <a href="?r=resultado%2Fcreate"><button class="btn btn-default" type="submit">Firmar</button></a>
+=======
+>>>>>>> refs/remotes/origin/Aloha
       </div>
     </div>
   </div>

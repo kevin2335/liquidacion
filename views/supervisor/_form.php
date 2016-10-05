@@ -18,7 +18,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'apellido_m_sup')->textInput(['maxlength' => true]) ?>
 
+<<<<<<< HEAD
     <?= $form->field($model, 'apellido_p_sup')->textInput(['maxlength' => true]) ?>
+=======
+      <?= $form->field($model, 'activo')->radioList([1 => 'Activo', 0 => 'Inactivo'])->label(False);?>
+>>>>>>> refs/remotes/origin/Aloha
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

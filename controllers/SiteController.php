@@ -9,7 +9,12 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Empleado;
+<<<<<<< HEAD
 
+=======
+use app\models\Certificacion;
+use app\models\CertificacionDeptSearch;
+>>>>>>> refs/remotes/origin/Aloha
 class SiteController extends Controller
 {
     /**
@@ -38,6 +43,7 @@ class SiteController extends Controller
         ];
     }
 
+<<<<<<< HEAD
     public function actionCreate()
     {
 
@@ -53,6 +59,8 @@ class SiteController extends Controller
         $this->render()*/
     }
 
+=======
+>>>>>>> refs/remotes/origin/Aloha
     /**
      * @inheritdoc
      */
@@ -77,8 +85,17 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-      $empleado = Empleado::find()->all();
-      return $this->render('index',['empleado'=>$empleado]);
+        $searchModel2 = new CertificacionDeptSearch();
+        $dataProvider = $searchModel2->search(Yii::$app->request->queryParams);
+        return $this->render('index', [
+            'searchModel2' => $searchModel2,
+            'dataProvider' => $dataProvider,
+        ]);
+        //$estado_id = 1;
+        //$solicitudes = $this->findCertificacion($estado_id);
+        //$empleado = Empleado::find()->all();
+        //$empleado = Empleado::find()->select('nombre, apellido_p')->all();
+        //return $this->render('index',['empleado'=>$empleado]);
         //return $this->render('index');
 
     }
@@ -142,6 +159,18 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+<<<<<<< HEAD
 
     
+=======
+    protected function findCertificacion($estado_id)
+    {
+        if (($model = Certificacion::find()->where(['id_estado' =>$estado_id])->all()) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+>>>>>>> refs/remotes/origin/Aloha
 }

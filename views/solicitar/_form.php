@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use kartik\datecontrol\DateControl;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Solicitar */
@@ -47,7 +47,7 @@ use yii\widgets\ActiveForm;
                 <div class="panel panel-default">
                   <div class="panel-body">
                     <?= $form->field($model, 'oficina_division')->textInput(['maxlength' => true]) ?>
-                    <?= $form->field($model, 'fecha_empleado')->textInput() ?>
+                    <?= $form->field($model, 'fecha_empleado')->widget(DateControl::classname(), ['type' => DateControl::FORMAT_DATE]); ?>
                   </div>
                 </div>
               </div>

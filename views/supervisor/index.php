@@ -2,13 +2,12 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\SupervisorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Supervisors';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="supervisor-index">
 
@@ -20,15 +19,25 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+      //  'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
+<<<<<<< HEAD
             'id',
             'id_dept',
             'nombre_sup',
             'apellido_m_sup',
             'apellido_p_sup',
+=======
+            'idDept.nombre_dept',
+            'nombreCompleto',
+            [
+               'label' => 'Activo:',
+               'format' => 'html',
+               'value' => 'activoLabel',
+            ],
+>>>>>>> refs/remotes/origin/Aloha
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

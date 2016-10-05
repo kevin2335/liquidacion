@@ -25,18 +25,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'id_certificacion',
             'nombre',
             'apellido_m',
             'apellido_p',
-            // 'seguro_social',
-            // 'nombramiento',
-            // 'puesto',
-            // 'oficina_division',
-            // 'fecha_empleado',
-            // 'razon_cese',
-            // 'created_at',
-            // 'updated_at',
+          
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
