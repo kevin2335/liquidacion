@@ -1,8 +1,6 @@
 <?php
-
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
 /* @var $this yii\web\View */
 /* @var $model app\models\SolicitarSearch */
 /* @var $form yii\widgets\ActiveForm */
@@ -16,8 +14,6 @@ use yii\widgets\ActiveForm;
     ]); ?>
 
     <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'id_certificacion') ?>
 
     <?= $form->field($model, 'nombre') ?>
 

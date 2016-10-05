@@ -1,15 +1,11 @@
 <?php
-
 namespace app\models;
-
 use Yii;
 use yii\behaviors\TimestampBehavior;
-
 /**
  * This is the model class for table "empleado".
  *
  * @property integer $id
- * @property integer $id_certificacion
  * @property string $nombre
  * @property string $apellido_m
  * @property string $apellido_p
@@ -19,6 +15,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $oficina_division
  * @property integer $fecha_empleado
  * @property string $razon_cese
+ * @property string $email
  * @property integer $created_at
  * @property integer $updated_at
  *
@@ -34,21 +31,19 @@ class Solicitar extends \yii\db\ActiveRecord
     {
         return 'empleado';
     }
-
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id_certificacion', 'nombre', 'apellido_m', 'apellido_p', 'seguro_social', 'nombramiento'], 'required'],
-            [['id_certificacion', 'seguro_social', 'fecha_empleado', 'created_at', 'updated_at'], 'integer'],
+            [['nombre', 'apellido_m', 'apellido_p', 'nombramiento','email'], 'required'],
+            [['seguro_social', 'fecha_empleado', 'created_at', 'updated_at'], 'integer'],
             [['nombre', 'puesto', 'oficina_division'], 'string', 'max' => 56],
             [['apellido_m', 'apellido_p', 'nombramiento'], 'string', 'max' => 128],
-            [['razon_cese'], 'string', 'max' => 20],
+            [['razon_cese'], 'string', 'max' => 20], [['email'], 'string', 'max' => 128],
         ];
     }
-
     /**
      * @inheritdoc
      */
@@ -56,7 +51,6 @@ class Solicitar extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'id:',
-            'id_certificacion' => 'Id de certificacion:',
             'nombre' => 'Nombre:',
             'apellido_m' => 'Apellido Materno:',
             'apellido_p' => 'Apellido Paterno:',
@@ -66,11 +60,11 @@ class Solicitar extends \yii\db\ActiveRecord
             'oficina_division' => 'Oficina o división:',
             'fecha_empleado' => 'Fecha del cese o cambio:',
             'razon_cese' => 'Razón de cese:',
+            'email' => 'Email:',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
     }
-
     public function behaviors()
     {
         return [
@@ -84,12 +78,7 @@ class Solicitar extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Certificacion::className(), ['id_empleado' => 'id']);
     }
-
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEmpleadoSupervisors()
-    {
-        return $this->hasMany(EmpleadoSupervisor::className(), ['empleado_id' => 'id']);
-    }
 }
