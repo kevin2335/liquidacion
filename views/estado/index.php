@@ -30,18 +30,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             //'filterModel' => $searchModel,
             'columns' => [
-                //['class' => 'yii\grid\SerialColumn'],
+                ['class' => 'yii\grid\SerialColumn'],
 
                 //'id',
                 'estado',
 
-                ['class' => 'yii\grid\ActionColumn'],
+                //['class' => 'yii\grid\ActionColumn'],
             ],
         ]); ?>
 
       </div>
       <div class="panel-footer">
-        <button class="btn btn-default" type="submit"><a href="index.php?r=resultado%2Findex">Ver Resultados</a></button>
+        <?= Html::a('Ver Resultados', ['resultado/index'],['class' => 'btn btn-info']);?>
       </div>
     </div>
   </div>
@@ -58,8 +58,8 @@ $this->params['breadcrumbs'][] = $this->title;
           echo GridView::widget([
               'dataProvider' => $empleado,
               'columns' => [
-                  'nombre',
-                  'apellido_p',
+                  'Nombre',
+
                 ],
               ]);
         ?>
