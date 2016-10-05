@@ -35,7 +35,7 @@ $this->title = 'Firmar';
                   'label' => 'Ver',
                   'format' => 'html',
                   'value' => function ($model) {
-                      return Html::a('Ver Solicitud', ['view', 'id' => $model->id_certificacion],['class' => 'btn btn-default btn-xs']);
+                      return Html::a('Ver Solicitud', ['view', 'id' => $model->id_certificacion],['class' => 'btn btn-info btn-xs']);
                   }
               ],
 

@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'apellido_m_sup')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'activo')->textInput(['maxlength' => true]) ?>
+      <?= $form->field($model, 'activo')->radioList([1 => 'Activo', 0 => 'Inactivo'])->label(False);?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
