@@ -38,12 +38,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     'label' => 'Ver resultados',
                     'format' => 'html',
                     'value' => function ($model) {
+                        //echo $model->id;
                         return Html::a('Resultado', ['resultado/index', 'id_certificacion' => $model->id],['class' => 'btn btn-info btn-xs']);
                     }
                 ],
-                //['class' => 'yii\grid\ActionColumn'],
+                
             ],
-          //return Html::a('Ver Resultados', ['resultado/index'],['class' => 'btn btn-info']);
+
         ]); ?>
 
       </div>
