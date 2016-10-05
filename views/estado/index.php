@@ -39,10 +39,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     'format' => 'html',
                     'value' => function ($model) {
                         //echo $model->id;
-                        return Html::a('Resultado', ['resultado/index', 'id_certificacion' => $model->id],['class' => 'btn btn-info btn-xs']);
+                        return Html::a('Resultado', ['resultado/index', 'id' => $model->id],['class' => 'btn btn-info btn-xs']);
                     }
                 ],
-                
+
             ],
 
         ]); ?>
