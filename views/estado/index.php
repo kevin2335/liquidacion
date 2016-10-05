@@ -37,6 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 //['class' => 'yii\grid\ActionColumn'],
             ],
+            return Html::a('Ver Resultados', ['resultado/index'],['class' => 'btn btn-info']);
         ]); ?>
 
       </div>
