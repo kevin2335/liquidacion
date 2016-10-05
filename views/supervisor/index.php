@@ -23,13 +23,11 @@ $this->title = 'Supervisors';
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-<<<<<<< HEAD
             'id',
             'id_dept',
             'nombre_sup',
             'apellido_m_sup',
             'apellido_p_sup',
-=======
             'idDept.nombre_dept',
             'nombreCompleto',
             [
@@ -37,7 +35,6 @@ $this->title = 'Supervisors';
                'format' => 'html',
                'value' => 'activoLabel',
             ],
->>>>>>> refs/remotes/origin/Aloha
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

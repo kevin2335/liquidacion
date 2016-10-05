@@ -1,12 +1,9 @@
 <?php
 use yii\helpers\Html;
-<<<<<<< HEAD
-=======
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use yii\grid\GridView;
 //use app\models\Empleado;
->>>>>>> refs/remotes/origin/Aloha
 
 /* @var $this yii\web\View */
 
@@ -65,10 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
       </div>
       <div class="panel-footer">
-<<<<<<< HEAD
-        <a href="?r=resultado%2Fcreate"><button class="btn btn-default" type="submit">Firmar</button></a>
-=======
->>>>>>> refs/remotes/origin/Aloha
+
       </div>
     </div>
   </div>

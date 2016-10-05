@@ -9,12 +9,9 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Empleado;
-<<<<<<< HEAD
-
-=======
 use app\models\Certificacion;
 use app\models\CertificacionDeptSearch;
->>>>>>> refs/remotes/origin/Aloha
+
 class SiteController extends Controller
 {
     /**
@@ -43,7 +40,6 @@ class SiteController extends Controller
         ];
     }
 
-<<<<<<< HEAD
     public function actionCreate()
     {
 
@@ -59,8 +55,6 @@ class SiteController extends Controller
         $this->render()*/
     }
 
-=======
->>>>>>> refs/remotes/origin/Aloha
     /**
      * @inheritdoc
      */
@@ -159,10 +153,7 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-<<<<<<< HEAD
 
-    
-=======
     protected function findCertificacion($estado_id)
     {
         if (($model = Certificacion::find()->where(['id_estado' =>$estado_id])->all()) !== null) {
@@ -172,5 +163,4 @@ class SiteController extends Controller
         }
     }
 
->>>>>>> refs/remotes/origin/Aloha
 }
