@@ -9,7 +9,7 @@ use yii\helpers\Html;
 $this->title = 'Firma:';
 $this->params['breadcrumbs'][] = ['label' => 'Firmas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-print_r($model->errors);
+
 ?>
 <div class="firma-create">
 

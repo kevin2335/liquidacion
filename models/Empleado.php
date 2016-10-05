@@ -80,4 +80,12 @@ class Empleado extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Supervisor::className(), ['id_empleado' => 'id']);
     }
+    /**
+    * Concatena el nombre con los apellidos
+    * @return string
+    */
+    public function getNombreCompleto()
+    {
+        return $this->nombre.' '.$this->apellido_p.' '.$this->apellido_m;
+    }
 }

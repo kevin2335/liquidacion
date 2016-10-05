@@ -9,21 +9,27 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public $password;
     public $authKey;
     public $accessToken;
+    public $dept_id;
+    public $email;
 
     private static $users = [
         '100' => [
             'id' => '100',
             'username' => 'admin',
             'password' => 'admin',
+            'email' => 'admin@upr.edu',
             'authKey' => 'test100key',
             'accessToken' => '100-token',
+            'dept_id' => 5,
         ],
         '101' => [
             'id' => '101',
             'username' => 'demo',
             'password' => 'demo',
+            'email' => 'demo@upr.edu',
             'authKey' => 'test101key',
             'accessToken' => '101-token',
+            'dept_id' => 4,
         ],
     ];
 
@@ -82,6 +88,14 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     {
         return $this->authKey;
     }
+    /**
+     * @inheritdoc
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
 
     /**
      * @inheritdoc
@@ -100,5 +114,13 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public function validatePassword($password)
     {
         return $this->password === $password;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getDepartment()
+    {
+        return $this->dept_id;
     }
 }

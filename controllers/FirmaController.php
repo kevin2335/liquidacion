@@ -1,15 +1,16 @@
 <?php
 
 namespace app\controllers;
+
 use Yii;
 use yii\base\Model;
 use app\models\Firma;
 use app\models\FirmaSearch;
+use app\models\Supervisor;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use app\models\Supervisor;
-
+use yii\filters\AccessControl;
 /**
  * FirmaController implements the CRUD actions for Firma model.
  */
@@ -21,6 +22,17 @@ class FirmaController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['create', 'update'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    // everything else is denied
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -62,26 +74,18 @@ class FirmaController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($cert_id = 1)
+    public function actionCreate($id)
     {
+        $sup_email = Yii::$app->user->identity->email;
+        $supervisor = $this->findSup($sup_email);
 
-      // $dept_id = 1;
-      // $sup_id = $this->findCertificacion($dept_id);
-      // $firmas = [];
-      // foreach($sup_id as $key => $id_supervisor) {
-      //   $firmas []= new Firma();
-      //   $firmas[$key]->id_dept= $dept_id->id_dept;
-      //   $resultados[$key]->id_certificacion = $cert_id;
-      //   $firmas[$key]->id_supervisor = $sup_id->id_supervisor;
-      // }
-      // if (Model::loadMultiple($firmas, Yii::$app->request->post()) && Model::validateMultiple($firmas)) {
-      //     foreach ($firmas as $firma) {
-      //       $firma->save(false);
-      //     }
-      $model = new Firma();
+        $model = new Firma();
+        $model->id_certificacion = $id; //checklater
+        $model->id_dept = $supervisor->id_dept;
+        $model->id_supervisor = $supervisor->id;
 
-      if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['site/index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -152,6 +156,21 @@ class FirmaController extends Controller
     {
         if (($model = Supervisor::find()->where(['id_dept' => $id])->all()) !== null) {//findOne($id)) !== null) {
       //  find()->where(['id_dept' => $id])->all()) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    /**
+     * Finds the Supervisor model based on its email key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Firma the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findSup($email)
+    {
+        if (($model = Supervisor::findOne(['email' => $email])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

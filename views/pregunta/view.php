@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'id_dept',
             'pregunta:ntext',
+            'incorrecta:ntext',
         ],
     ]) ?>
 

@@ -76,7 +76,7 @@ class ResultadoController extends Controller
             foreach ($resultados as $resultado) {
               $resultado->save(false);
             }
-            return $this->redirect(['view', 'id' => $cert_id]);
+            return $this->redirect(['firma/create', 'id' => $cert_id]);
         } else {
             return $this->render('create', [
                 'resultados' => $resultados,
