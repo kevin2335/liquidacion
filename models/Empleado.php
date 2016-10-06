@@ -83,7 +83,7 @@ class Empleado extends \yii\db\ActiveRecord
     * Concatena el nombre con los apellidos
     * @return string
     */
-    public function getNombreCompleto()
+    public function getSolicitante()
     {
         return $this->nombre.' '.$this->apellido_p.' '.$this->apellido_m;
     }
