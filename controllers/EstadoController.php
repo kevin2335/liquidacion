@@ -1,14 +1,17 @@
 <?php
-
 namespace app\controllers;
-
 use Yii;
 use app\models\Estado;
 use app\models\EstadoSearch;
+use app\models\Empleado;
+use app\models\EmpleadoSearch;
+use app\models\EmpleadoSolicitudSearch;
+use app\models\Certificacion;
+use app\models\CertificacionSearch;
 use yii\web\Controller;
+use yii\web\EmpleadoController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
 /**
  * EstadoController implements the CRUD actions for Estado model.
  */
@@ -28,22 +31,23 @@ class EstadoController extends Controller
             ],
         ];
     }
-
     /**
      * Lists all Estado models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id = 2)
     {
-        $searchModel = new EstadoSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $searchModel = new CertificacionSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $id);
+        $searchModel2 = new CertificacionSearch();
+        $empleado = $searchModel2->search3(Yii::$app->request->queryParams);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'searchModel2' => $searchModel2,
+            'empleado' => $empleado,
         ]);
     }
-
     /**
      * Displays a single Estado model.
      * @param integer $id
@@ -55,7 +59,6 @@ class EstadoController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-
     /**
      * Creates a new Estado model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -63,17 +66,15 @@ class EstadoController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Estado();
-
+        /*$model = new Estado();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
             ]);
-        }
+        }*/
     }
-
     /**
      * Updates an existing Estado model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -83,7 +84,6 @@ class EstadoController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -92,7 +92,6 @@ class EstadoController extends Controller
             ]);
         }
     }
-
     /**
      * Deletes an existing Estado model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -102,10 +101,8 @@ class EstadoController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
         return $this->redirect(['index']);
     }
-
     /**
      * Finds the Estado model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

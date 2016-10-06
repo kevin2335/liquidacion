@@ -50,15 +50,16 @@ $this->params['breadcrumbs'][] = $this->title;
                     'label' => 'Firmar',
                     'format' => 'html',
                     'value' => function ($model) {
-                      return Html::a('Firmar', ['resultado/create', 'id'],['class' => 'btn btn-info btn-xs']);
-                    }
-                ],
-              ],
-        ]) ?>
+                    //  return Html::a('Firmar', ['resultado/create', 'id'],['class' => 'btn btn-info btn-xs']);
+                    return Html::a('Firmar', ['resultado/create', 'id' => $model->id, 'id_dept' => $model->id,'id_certificacion' => $model->id],['class' => 'btn btn-info btn-xs']);
+                   }
+               ],
+             ],
+       ]) ?>
 
-      </div>
-      <div class="panel-footer">
-      </div>
-    </div>
-  </div>
+     </div>
+     <div class="panel-footer">
+     </div>
+   </div>
+ </div>
 </div>
