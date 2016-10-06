@@ -61,7 +61,8 @@ class ResultadoController extends Controller
      */
     public function actionCreate($cert_id = 2)
     {
-      //  $email = Yii::$app->user->identity->email;
+      //  $sup_email = Yii::$app->user->identity->email;
+    //    $supervisor = $this->findSup($sup_email);
         $dept_id = 1;
         $sup_id = 1;
         $preguntas = $this->findPreguntas($dept_id);
@@ -160,6 +161,14 @@ class ResultadoController extends Controller
     {
         if (($models = Pregunta::find()->where(['id_dept' => $id])->all()) !== null) {
             return $models;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    protected function findSup($email)
+    {
+        if (($model = Supervisor::findOne(['email' => $email])) !== null) {
+            return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
