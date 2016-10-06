@@ -32,8 +32,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'id',
-                'id_estado',
+                //'id',
+                'estado.estado',
                 [
                     'label' => 'Ver resultados',
                     'format' => 'html',
@@ -67,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
               'dataProvider' => $empleado,
               'columns' => [
                   ['class' => 'yii\grid\SerialColumn'],
-                  'Solicitante',
+                  'empleado.Solicitante',
 
                 ],
               ]);

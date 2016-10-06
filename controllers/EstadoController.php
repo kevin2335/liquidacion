@@ -43,8 +43,8 @@ class EstadoController extends Controller
     {
         $searchModel = new CertificacionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $id);
-        $searchModel2 = new EmpleadoSolicitudSearch();
-        $empleado = $searchModel2->search(Yii::$app->request->queryParams);
+        $searchModel2 = new CertificacionSearch();
+        $empleado = $searchModel2->search3(Yii::$app->request->queryParams, $id);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
