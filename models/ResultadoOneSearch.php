@@ -39,9 +39,14 @@ class ResultadoOneSearch extends Resultado
      *
      * @return ActiveDataProvider
      */
-    public function search($params, $id_cert)
+    public function search($params, $id_cert = NULL)
     {
-        $query = Resultado::find()->innerJoin(['certificacion'])->innerJoin(['empleado'])->where(['and', 'certificacion.id = resultado.id_certificacion', 'certificacion.id_empleado = empleado.id', 'certificacion.id' => $id_cert]);
+        if ($id_cert !== NULL) {
+            $query = Resultado::find()->with(['certificacion','supervisor'])
+                                      ->where(['id_certificacion' => $id_cert]);
+        } else {
+            $query = Resultado::find();
+        }
 
         // add conditions that should always apply here
 

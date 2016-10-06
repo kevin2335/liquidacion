@@ -38,9 +38,14 @@ class CertificacionSearch extends Certificacion
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $empleado_id = NULL)
     {
-        $query = Certificacion::find();
+        if ($empleado_id !== NULL) {
+            $query = Certificacion::find()->with(['estado','empleado'])
+                                 ->where(['id_empleado' => $empleado_id]);
+        } else {
+            $query = Certificacion::find();
+        }
 
         // add conditions that should always apply here
 

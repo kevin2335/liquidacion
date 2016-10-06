@@ -41,7 +41,7 @@ class EstadoSearch extends Estado
      */
     public function search($params)
     {
-        $query = Estado::find()->innerJoin(['certificacion'])->innerJoin(['empleado'])->where(['and', 'certificacion.id_empleado = empleado.id', 'certificacion.id_estado = estado.id', 'empleado.id = 1']);
+        $query = Estado::find();
 
         // add conditions that should always apply here
 

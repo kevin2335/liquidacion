@@ -36,12 +36,12 @@ class ResultadoController extends Controller
      * Lists all Resultado models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id)
     {
         $searchModel = new ResultadoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $searchModel2 = new ResultadoOneSearch();
-        $resultado = $searchModel2->search(Yii::$app->request->queryParams, Yii::$app->request->get('id'));
+        $resultado = $searchModel2->search(Yii::$app->request->queryParams, $id);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
