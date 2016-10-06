@@ -1,12 +1,12 @@
 <?php
+
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Firma */
 
-//$this->title = $model->id;
-//$this->title = $model->empleado->nombre;
+$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Firmas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -17,25 +17,10 @@ $this->params['breadcrumbs'][] = $this->title;
       Gracias por Llenar el cuestionario
     </p>
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => '¿Esta seguro de borrar esto?',
-                'method' => 'post',
-            ],
-        ]) ?>
+        <?= Html::a('Firmar', ['/firmar/create', 'id' => $model->certificacion_id], ['class' => 'btn btn-primary']) ?>
+    </p>
+    <p>
+        <?= Html::a('Rechazar', ['/firmar/deny', 'id' => $model->certificacion_id], ['class' => 'btn btn-primary']) ?>
     </p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-          'departamento.nombre_dept',
-          'supervisor.nombreCompleto',
-          'certificacion.empleado.nombre',
-          'firmaLabel:html',
-            'created_at:date',
-            'updated_at:date',
-        ],
-    ]) ?>
 </div>

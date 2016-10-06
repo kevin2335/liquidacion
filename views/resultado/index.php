@@ -19,15 +19,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="panel-body">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Create Resultado', ['create'], ['class' => 'btn btn-success']) ?>
-
     </p>
+
     <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        'dataProvider' => $resultado,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -36,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_certificacion',
             'resultado',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

@@ -1,6 +1,7 @@
 <?php
 
 namespace app\controllers;
+
 use Yii;
 use app\models\Pregunta;
 use app\models\PreguntaSearch;
@@ -101,6 +102,7 @@ class PreguntaController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
+
         return $this->redirect(['index']);
     }
 

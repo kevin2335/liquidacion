@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Firma;
+use app\models\Resultado;
 
 /**
- * FirmaSearch represents the model behind the search form about `app\models\Firma`.
+ * ResultadoSearch represents the model behind the search form about `app\models\Resultado`.
  */
-class FirmaSearch extends Firma
+class ResultadoOneSearch extends Resultado
 {
     /**
      * @inheritdoc
@@ -18,7 +18,8 @@ class FirmaSearch extends Firma
     public function rules()
     {
         return [
-            [['id', 'id_supervisor', 'id_certificacion', 'firma', 'fecha_firma', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'id_supervisor', 'id_certificacion', 'created_at', 'updated_at'], 'integer'],
+            [['resultado', 'comentario'], 'safe'],
         ];
     }
 
@@ -38,9 +39,14 @@ class FirmaSearch extends Firma
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $id_cert = NULL)
     {
-        $query = Firma::find();
+        if ($id_cert !== NULL) {
+            $query = Resultado::find()->with(['certificacion','supervisor'])
+                                      ->where(['id_certificacion' => $id_cert]);
+        } else {
+            $query = Resultado::find();
+        }
 
         // add conditions that should always apply here
 
@@ -61,11 +67,12 @@ class FirmaSearch extends Firma
             'id' => $this->id,
             'id_supervisor' => $this->id_supervisor,
             'id_certificacion' => $this->id_certificacion,
-            'firma' => $this->firma,
-            'fecha_firma' => $this->fecha_firma,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
+
+        $query->andFilterWhere(['like', 'resultado', $this->resultado])
+            ->andFilterWhere(['like', 'comentario', $this->comentario]);
 
         return $dataProvider;
     }

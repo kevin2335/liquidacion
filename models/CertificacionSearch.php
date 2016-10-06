@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Certificacion;
+use app\models\Empleado;
 
 /**
  * CertificacionSearch represents the model behind the search form about `app\models\Certificacion`.
@@ -38,9 +39,14 @@ class CertificacionSearch extends Certificacion
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $empleado_id = NULL)
     {
-        $query = Certificacion::find();
+        if ($empleado_id !== NULL) {
+            $query = Certificacion::find()->with(['estado','empleado'])
+                                 ->where(['id_empleado' => $empleado_id]);
+        } else {
+            $query = Certificacion::find();
+        }
 
         // add conditions that should always apply here
 
@@ -62,7 +68,7 @@ class CertificacionSearch extends Certificacion
             'id_empleado' => $this->id_empleado,
             'id_estado' => $this->id_estado,
         ]);
-        //$query->andFilterWhere(['like', 'id_empleado', $this->empleado->name]);
+
         return $dataProvider;
     }
     public function search2($params)
@@ -91,5 +97,34 @@ class CertificacionSearch extends Certificacion
         ]);
 
         return $certificaciones_firmar;
+    }
+    public function search3($params)
+    {
+        $query = Certificacion::find()->with(['estado'])
+                                      ->where(['id_estado' => 3]);
+
+
+        // add conditions that should always apply here
+
+        $empleado = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $empleado;
+        }
+
+        // grid filtering conditions
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'id_empleado' => $this->id_empleado,
+            'id_estado' => $this->id_estado,
+        ]);
+
+        return $empleado;
     }
 }

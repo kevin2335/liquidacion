@@ -1,12 +1,12 @@
 <?php
+
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Certificacion */
-//$this->title = $model->certificacion->empleado->nombre;
 
-$this->title = $model->empleado->nombre;
+$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Certificacions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => '¿Esta seguro de borrar esto?',
+                'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>

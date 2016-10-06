@@ -1,10 +1,12 @@
 <?php
 
 namespace app\controllers;
+
 use Yii;
-use yii\base\Model;
 use app\models\Certificacion;
 use app\models\CertificacionSearch;
+use app\models\Empleado;
+use app\models\EmpleadoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

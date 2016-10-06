@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Resultado */
 
-$this->title = 'Conteste las siguientes preguntas:';
+$this->title = 'Create Resultado';
 $this->params['breadcrumbs'][] = ['label' => 'Resultados', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

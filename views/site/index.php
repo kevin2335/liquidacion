@@ -62,6 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
       </div>
       <div class="panel-footer">
+
       </div>
     </div>
   </div>

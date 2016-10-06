@@ -1,5 +1,7 @@
 <?php
+
 namespace app\controllers;
+
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -9,6 +11,7 @@ use app\models\ContactForm;
 use app\models\Empleado;
 use app\models\Certificacion;
 use app\models\CertificacionDeptSearch;
+
 class SiteController extends Controller
 {
     /**
@@ -37,6 +40,21 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionCreate()
+    {
+
+
+        /*$certificacion_id = 1;
+        $empleado_id = $this->findEmpleado($certificacion_id);
+        $empleado = 1;
+        foreach($empleado_id as $key=>$certificacion_id)
+        {
+          $empleado = new Empleado();
+          $empleado -> id_certificacion = $certificacion_id;
+        }
+        $this->render()*/
+    }
+
     /**
      * @inheritdoc
      */
@@ -52,6 +70,8 @@ class SiteController extends Controller
             ],
         ];
     }
+
+
     /**
      * Displays homepage.
      *
@@ -71,7 +91,9 @@ class SiteController extends Controller
         //$empleado = Empleado::find()->select('nombre, apellido_p')->all();
         //return $this->render('index',['empleado'=>$empleado]);
         //return $this->render('index');
+
     }
+
     /**
      * Login action.
      *
@@ -82,6 +104,7 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
+
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -90,6 +113,7 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
     /**
      * Logout action.
      *
@@ -98,8 +122,10 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
+
         return $this->goHome();
     }
+
     /**
      * Displays contact page.
      *
@@ -110,12 +136,14 @@ class SiteController extends Controller
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
+
             return $this->refresh();
         }
         return $this->render('contact', [
             'model' => $model,
         ]);
     }
+
     /**
      * Displays about page.
      *
@@ -125,6 +153,7 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
     protected function findCertificacion($estado_id)
     {
         if (($model = Certificacion::find()->where(['id_estado' =>$estado_id])->all()) !== null) {

@@ -23,22 +23,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'apellido_p') ?>
 
-    <?echo $form->field($model, 'seguro_social') ?>
+    <?php // echo $form->field($model, 'seguro_social') ?>
 
-    <?echo $form->field($model, 'nombramiento') ?>
+    <?php // echo $form->field($model, 'nombramiento') ?>
 
-    <?echo $form->field($model, 'puesto') ?>
+    <?php // echo $form->field($model, 'puesto') ?>
 
-    <?echo $form->field($model, 'oficina_division') ?>
+    <?php // echo $form->field($model, 'oficina_division') ?>
 
-    <?echo $form->field($model, 'fecha_empleado') ?>
+    <?php // echo $form->field($model, 'fecha_empleado') ?>
 
-    <?echo $form->field($model, 'razon_cese') ?>
+    <?php // echo $form->field($model, 'razon_cese') ?>
 
-    <?echo $form->field($model, 'created_at') ?>
+    <?php // echo $form->field($model, 'created_at') ?>
 
-    <?echo $form->field($model, 'updated_at') ?>
-
+    <?php // echo $form->field($model, 'updated_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

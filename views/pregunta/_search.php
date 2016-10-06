@@ -19,6 +19,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_dept') ?>
 
+
+    <?php // echo $form->field($model, 'na_bool') ?>
+
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>

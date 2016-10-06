@@ -12,10 +12,20 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'firma')->radioList([1 => 'Aceptar', 0 => 'Rechazar'])->label(False);?>
+    <?= $form->field($model, 'id_supervisor')->textInput() ?>
+
+    <?= $form->field($model, 'id_certificacion')->textInput() ?>
+
+    <?= $form->field($model, 'firma')->textInput() ?>
+
+    <?= $form->field($model, 'fecha_firma')->textInput() ?>
+
+    <?= $form->field($model, 'created_at')->textInput() ?>
+
+    <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Guardar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

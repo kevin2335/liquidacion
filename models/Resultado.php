@@ -1,7 +1,10 @@
 <?php
+
 namespace app\models;
+
 use Yii;
 use yii\behaviors\TimestampBehavior;
+
 /**
  * This is the model class for table "resultado".
  *
@@ -12,15 +15,18 @@ use yii\behaviors\TimestampBehavior;
  * @property string $comentario
  * @property integer $created_at
  * @property integer $updated_at
+ *
  * @property Certificacion $idCertificacion
  * @property Supervisor $idSupervisor
  */
 class Resultado extends \yii\db\ActiveRecord
 {
+
     public $pregunta;
     public $_si;
     public $_no;
     public $_na;
+
     /**
      * @inheritdoc
      */
@@ -28,6 +34,7 @@ class Resultado extends \yii\db\ActiveRecord
     {
         return 'resultado';
     }
+
     /**
      * @inheritdoc
      */
@@ -42,6 +49,7 @@ class Resultado extends \yii\db\ActiveRecord
             [['id_supervisor'], 'exist', 'skipOnError' => true, 'targetClass' => Supervisor::className(), 'targetAttribute' => ['id_supervisor' => 'id']],
         ];
     }
+
     /**
      * @inheritdoc
      */
@@ -73,6 +81,7 @@ class Resultado extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Certificacion::className(), ['id' => 'id_certificacion']);
     }
+
     /**
      * @return \yii\db\ActiveQuery
      */

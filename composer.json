@@ -18,7 +18,7 @@
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "kartik-v/yii2-datecontrol": "dev-master",
+        "kartik-v/yii2-datecontrol": "@dev",
         "2amigos/yii2-date-picker-widget": "~1.0",
         "kartik-v/yii2-widget-datepicker": "@dev"
     },

@@ -41,7 +41,7 @@ class EmpleadoSolicitudSearch extends Empleado
      */
     public function search($params)
     {
-        $query = Empleado::find()->innerJoin(['certificacion'])->where(['and', 'certificacion.id_estado = 3', 'certificacion.id_empleado = empleado.id']);
+        $query = Empleado::find();
 
         // add conditions that should always apply here
 

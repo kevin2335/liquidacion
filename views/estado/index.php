@@ -33,15 +33,23 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => 'yii\grid\SerialColumn'],
 
                 //'id',
-                'estado',
+                'estado.estado',
+                [
+                    'label' => 'Ver resultados',
+                    'format' => 'html',
+                    'value' => function ($model) {
+                        //echo $model->id;
+                        return Html::a('Resultado', ['resultado/index', 'id' => $model->id],['class' => 'btn btn-info btn-xs']);
+                    }
+                ],
 
-                //['class' => 'yii\grid\ActionColumn'],
             ],
+
         ]); ?>
 
       </div>
       <div class="panel-footer">
-        <?= Html::a('Ver Resultados', ['resultado/index'],['class' => 'btn btn-info']);?>
+
       </div>
     </div>
   </div>
@@ -58,7 +66,8 @@ $this->params['breadcrumbs'][] = $this->title;
           echo GridView::widget([
               'dataProvider' => $empleado,
               'columns' => [
-                  'Nombre',
+                  ['class' => 'yii\grid\SerialColumn'],
+                  'empleado.Solicitante',
 
                 ],
               ]);

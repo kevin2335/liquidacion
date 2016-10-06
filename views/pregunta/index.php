@@ -13,6 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="pregunta-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Agregar Pregunta', ['create'], ['class' => 'btn btn-success']) ?>
@@ -26,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'id_dept',
             'pregunta:ntext',
-
+            
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
