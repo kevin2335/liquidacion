@@ -3,7 +3,6 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use yii\grid\GridView;
-//use app\models\Empleado;
 
 /* @var $this yii\web\View */
 
@@ -47,13 +46,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
                 //'id',
-                'Solicitante',
+                'empleado.Solicitante',
 
                 [
                     'label' => 'Firmar',
                     'format' => 'html',
                     'value' => function ($model) {
-                        return Html::a('Firmar', ['resultado/create', 'id' => $model->id, 'id_dept' => $model->id,'id_certificacion' => $model->id],['class' => 'btn btn-info btn-xs']);
+                    //  echo $model->id;
+                    return Html::a('Firmar', ['resultado/create', 'cert_id' => $model->id/*, 'dept_id' => $model->id_dept*/],['class' => 'btn btn-info btn-xs']);
                     }
                 ],
 
@@ -62,7 +62,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
       </div>
       <div class="panel-footer">
-
       </div>
     </div>
   </div>

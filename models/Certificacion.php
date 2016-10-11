@@ -97,4 +97,5 @@ class Certificacion extends \yii\db\ActiveRecord
     {
         return ($this->is_rejected == 1)? 'Rechazado' : 'Aprobado';
     }
+    
 }

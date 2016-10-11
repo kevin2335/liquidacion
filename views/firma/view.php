@@ -17,10 +17,10 @@ $this->params['breadcrumbs'][] = $this->title;
       Gracias por Llenar el cuestionario
     </p>
     <p>
-        <?= Html::a('Firmar', ['/firmar/create', 'id' => $model->certificacion_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Firmar', ['/firmar/create', 'id' => $model->id_certificacion], ['class' => 'btn btn-primary']) ?>
     </p>
     <p>
-        <?= Html::a('Rechazar', ['/firmar/deny', 'id' => $model->certificacion_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Rechazar', ['/firmar/deny', 'id' => $model->id_certificacion], ['class' => 'btn btn-primary']) ?>
     </p>
 
 </div>

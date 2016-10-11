@@ -23,11 +23,6 @@ $this->title = 'Supervisors';
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'id_dept',
-            'nombre_sup',
-            'apellido_m_sup',
-            'apellido_p_sup',
             'idDept.nombre_dept',
             'nombreCompleto',
             [

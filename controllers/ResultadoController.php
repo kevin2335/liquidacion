@@ -1,17 +1,13 @@
 <?php
-
 namespace app\controllers;
-
 use Yii;
 use yii\base\Model;
 use app\models\Resultado;
 use app\models\Pregunta;
 use app\models\ResultadoSearch;
-use app\models\ResultadoOneSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
 /**
  * ResultadoController implements the CRUD actions for Resultado model.
  */
@@ -31,26 +27,20 @@ class ResultadoController extends Controller
             ],
         ];
     }
-
     /**
      * Lists all Resultado models.
      * @return mixed
      */
-    public function actionIndex($id)
+    public function actionIndex()
     {
         $searchModel = new ResultadoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $searchModel2 = new ResultadoOneSearch();
-        $resultado = $searchModel2->search(Yii::$app->request->queryParams, $id);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'searchModel2' => $searchModel2,
-            'resultado' => $resultado,
         ]);
     }
-
     /**
      * Displays a single Resultado model.
      * @param integer $id
@@ -61,6 +51,7 @@ class ResultadoController extends Controller
     {
         return $this->render('view', [
             'models' => $this->findModels($id),
+            'id' => $id,
         ]);
     }
     /**
@@ -68,10 +59,10 @@ class ResultadoController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($cert_id = 3)
+    public function actionCreate($cert_id)
     {
-      +
-        $dept_id = 4;
+      //  $email = Yii::$app->user->identity->email;
+        $dept_id = 1;
         $sup_id = 1;
         $preguntas = $this->findPreguntas($dept_id);
         $resultados = [];
@@ -81,9 +72,7 @@ class ResultadoController extends Controller
             $resultados[$key]->id_certificacion = $cert_id;
             $resultados[$key]->pregunta = $pregunta->pregunta;
         }
-
         if (Model::loadMultiple($resultados, Yii::$app->request->post()) && Model::validateMultiple($resultados)) {
-
             foreach ($resultados as $resultado) {
               $resultado->save(false);
             }
@@ -94,26 +83,23 @@ class ResultadoController extends Controller
             ]);
         }
     }
-
     /**
      * Updates an existing Resultado model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id = 2)
     {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $models = $this->findModels($id);
+          if (Model::loadMultiple($models, Yii::$app->request->post()) && Model::validateMultiple($models)) {
+            return $this->redirect(['view', 'id' => $models[0]->id_certificacion]);
         } else {
-            return $this->render('update', [
-                'model' => $model,
+            return $this->render('create', [
+                'resultados' => $models,
             ]);
         }
     }
-
     /**
      * Deletes an existing Resultado model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -123,10 +109,8 @@ class ResultadoController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
         return $this->redirect(['index']);
     }
-
     /**
      * Finds the Resultado model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
