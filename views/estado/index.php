@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
   <div class="col-sm-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h1>Solicitudes ya firmadas</h1>
+        <h1>Solicitudes ya procesadas</h1>
       </div>
       <div class="panel-body">
 
@@ -68,6 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
               'columns' => [
                   ['class' => 'yii\grid\SerialColumn'],
                   'empleado.Solicitante',
+                  'empleado.razon_cese',
 
                 ],
               ]);
