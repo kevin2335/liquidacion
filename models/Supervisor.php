@@ -94,4 +94,8 @@ class Supervisor extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Departamento::className(), ['id' => 'id_dept']);
     }
+    public function getNombreCompleto()
+    {
+        return $this->nombre_sup.' '.$this->apellido_p_sup.' '.$this->apellido_m_sup;
+    }
 }

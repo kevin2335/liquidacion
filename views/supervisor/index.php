@@ -30,11 +30,7 @@ $this->title = 'Supervisors';
             'apellido_p_sup',
             'idDept.nombre_dept',
             'nombreCompleto',
-            [
-               'label' => 'Activo:',
-               'format' => 'html',
-               'value' => 'activoLabel',
-            ],
+            
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
