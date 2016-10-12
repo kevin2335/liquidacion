@@ -46,8 +46,8 @@ class CertificacionDeptSearch extends Certificacion
 
         if ($estado_id !== NULL && $id_emp !== NULL) {
             $query = Certificacion::find()->with(['empleado'])
-                                  ->andwhere(['id_empleado' => $id_emp])
-                                  ->andWhere(['id_estado' => $estado_id]);
+                                          ->where(['id_empleado' => $id_emp])
+                                          ->andWhere(['id_estado' => $estado_id]);
         } else {
             $query = Certificacion::find();
         }

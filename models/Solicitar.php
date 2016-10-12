@@ -41,8 +41,8 @@ class Solicitar extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'apellido_m', 'apellido_p', 'nombramiento','email'], 'required'],
-            [['seguro_social', 'fecha_empleado', 'created_at', 'updated_at'], 'integer'],
+            [['nombre', 'nombramiento','email','oficina_division','fecha_empleado','puesto','razon_cese'], 'required'],
+            [['fecha_empleado', 'created_at', 'updated_at'], 'integer'],
             [['nombre', 'puesto', 'oficina_division'], 'string', 'max' => 56],
             [['apellido_m', 'apellido_p', 'nombramiento'], 'string', 'max' => 128],
             [['razon_cese'], 'string', 'max' => 20], [['email'], 'string', 'max' => 128],

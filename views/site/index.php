@@ -44,16 +44,13 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
-                //'id',
-                'empleado.Solicitante',
-
+                
+                    'empleado.Solicitante',
                 [
                     'label' => 'Firmar',
                     'format' => 'html',
                     'value' => function ($model) {
-                    //  echo $model->id;
-                    return Html::a('Firmar', ['resultado/create', 'cert_id' => $model->id/*, 'dept_id' => $model->id_dept*/],['class' => 'btn btn-info btn-xs']);
+                        return Html::a('Firmar', ['resultado/create','cert_id' => $model->id], ['class' => 'btn btn-info btn-xs']);
                     }
                 ],
 
