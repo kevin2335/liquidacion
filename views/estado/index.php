@@ -39,8 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a('Resultado', ['resultado/index', 'id' => $model->id],['class' => 'btn btn-info btn-xs']);
                     }
                 ],
-
-        ]); ?>
+              ]
+            ]); ?>
 
       </div>
       <div class="panel-footer">
@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
               'columns' => [
                   ['class' => 'yii\grid\SerialColumn'],
                   'empleado.Solicitante',
-                  
+
                   //'supervisor_id',
                   'empleado.razon_cese',
 
