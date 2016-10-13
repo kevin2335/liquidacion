@@ -70,8 +70,14 @@ class ResultadoController extends Controller
      */
     public function actionCreate($cert_id = 3)
     {
+<<<<<<< HEAD
       +
         $dept_id = 4;
+=======
+      //  $sup_email = Yii::$app->user->identity->email;
+    //    $supervisor = $this->findSup($sup_email);
+        $dept_id = 1;
+>>>>>>> refs/remotes/origin/dev
         $sup_id = 1;
         $preguntas = $this->findPreguntas($dept_id);
         $resultados = [];
@@ -87,7 +93,7 @@ class ResultadoController extends Controller
             foreach ($resultados as $resultado) {
               $resultado->save(false);
             }
-            return $this->redirect(['view', 'id' => $cert_id]);
+            return $this->redirect(['firma/create', 'id' => $cert_id]);
         } else {
             return $this->render('create', [
                 'resultados' => $resultados,
@@ -176,6 +182,14 @@ class ResultadoController extends Controller
     {
         if (($models = Pregunta::find()->where(['id_dept' => $id])->all()) !== null) {
             return $models;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    protected function findSup($email)
+    {
+        if (($model = Supervisor::findOne(['email' => $email])) !== null) {
+            return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }

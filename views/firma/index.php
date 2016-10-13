@@ -19,7 +19,7 @@ $this->title = 'Firmar';
 
     <div class="panel-body">
       <h2> <small>"Certificar que la labor del funcionario esté al día y que haya entregado, registro de notas(si aplica), llaves, equipo u propiedad universitaria y entre otros."</small></h2>
-
+       
       <?= GridView::widget([
           'dataProvider' => $dataProvider,
           //'filterModel' => $searchModel,

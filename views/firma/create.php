@@ -9,6 +9,10 @@ use yii\helpers\Html;
 $this->title = 'Create Firma';
 $this->params['breadcrumbs'][] = ['label' => 'Firmas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/dev
 ?>
 <div class="firma-create">
 

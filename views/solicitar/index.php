@@ -1,12 +1,9 @@
-<?php
-
+<?<?php
 use yii\helpers\Html;
 use yii\grid\GridView;
-
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\SolicitarSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
 $this->title = 'Solicitar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -23,13 +20,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'nombre',
             'apellido_m',
             'apellido_p',
+<<<<<<< HEAD
           
 
+=======
+            // 'seguro_social',
+            // 'nombramiento',
+            // 'puesto',
+            // 'oficina_division',
+            // 'fecha_empleado',
+            // 'razon_cese',
+            // 'created_at',
+            // 'updated_at',
+>>>>>>> refs/remotes/origin/dev
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

@@ -1,13 +1,14 @@
 <?php
-
 namespace app\models;
-
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Certificacion;
 use app\models\Empleado;
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/dev
 /**
  * CertificacionSearch represents the model behind the search form about `app\models\Certificacion`.
  */
@@ -22,7 +23,6 @@ class CertificacionSearch extends Certificacion
             [['id', 'id_empleado', 'id_estado'], 'integer'],
         ];
     }
-
     /**
      * @inheritdoc
      */
@@ -31,7 +31,6 @@ class CertificacionSearch extends Certificacion
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
-
     /**
      * Creates data provider instance with search query applied
      *
@@ -47,33 +46,36 @@ class CertificacionSearch extends Certificacion
         } else {
             $query = Certificacion::find();
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/dev
         // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-
         $this->load($params);
-
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
-
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
             'id_empleado' => $this->id_empleado,
             'id_estado' => $this->id_estado,
         ]);
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/dev
         return $dataProvider;
     }
     public function search2($params)
     {
         $query2 = Certificacion::find()->where(['id_empleado = 1']);
+<<<<<<< HEAD
 
         // add conditions that should always apply here
 
@@ -83,18 +85,29 @@ class CertificacionSearch extends Certificacion
 
         $this->load($params);
 
+=======
+        // add conditions that should always apply here
+        $certificaciones_firmar = new ActiveDataProvider([
+            'query' => $query2,
+        ]);
+        $this->load($params);
+>>>>>>> refs/remotes/origin/dev
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $certificaciones_firmar;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/dev
         // grid filtering conditions
         $query2->andFilterWhere([
             'id' => $this->id,
             'id_empleado' => $this->id_empleado,
             'id_estado' => $this->id_estado,
         ]);
+<<<<<<< HEAD
 
         return $certificaciones_firmar;
     }
@@ -114,19 +127,38 @@ class CertificacionSearch extends Certificacion
 
         $this->load($params);
 
+=======
+        return $certificaciones_firmar;
+    }
+    public function search3($params)
+    {
+        $query = Certificacion::find()->with(['estado'])
+                                      ->where(['id_estado' => 3]);
+        // add conditions that should always apply here
+        $empleado = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+        $this->load($params);
+>>>>>>> refs/remotes/origin/dev
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $empleado;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/dev
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
             'id_empleado' => $this->id_empleado,
             'id_estado' => $this->id_estado,
         ]);
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/dev
         return $empleado;
     }
 }

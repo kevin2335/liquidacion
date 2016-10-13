@@ -15,6 +15,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'id_dept')->textInput() ?>
 
     <?= $form->field($model, 'pregunta')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'incorrecta')->textarea() ?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Agregar Pregunta' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

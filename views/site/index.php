@@ -4,7 +4,10 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use yii\grid\GridView;
 //use app\models\Empleado;
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/dev
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
@@ -48,11 +51,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => 'yii\grid\SerialColumn'],
                 //'id',
                 'Solicitante',
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/dev
                 [
                     'label' => 'Firmar',
                     'format' => 'html',
                     'value' => function ($model) {
+<<<<<<< HEAD
                         return Html::a('Firmar', ['resultado/create', 'id' => $model->id, 'id_dept' => $model->id,'id_certificacion' => $model->id],['class' => 'btn btn-info btn-xs']);
                     }
                 ],
@@ -66,4 +73,18 @@ $this->params['breadcrumbs'][] = $this->title;
       </div>
     </div>
   </div>
+=======
+                    //  return Html::a('Firmar', ['resultado/create', 'id'],['class' => 'btn btn-info btn-xs']);
+                    return Html::a('Firmar', ['resultado/create', 'id' => $model->id, 'id_dept' => $model->id,'id_certificacion' => $model->id],['class' => 'btn btn-info btn-xs']);
+                   }
+               ],
+             ],
+       ]) ?>
+
+     </div>
+     <div class="panel-footer">
+     </div>
+   </div>
+ </div>
+>>>>>>> refs/remotes/origin/dev
 </div>

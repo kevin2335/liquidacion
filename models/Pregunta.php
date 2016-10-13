@@ -10,6 +10,7 @@ use Yii;
  * @property integer $id
  * @property integer $id_dept
  * @property string $pregunta
+ * @property string $resupuesta
  * @property Departamento $idDept
  */
 class Pregunta extends \yii\db\ActiveRecord
@@ -31,6 +32,7 @@ class Pregunta extends \yii\db\ActiveRecord
             [['id_dept', 'pregunta'], 'required'],
             [['id_dept'], 'integer'],
             [['pregunta'], 'string'],
+            [['incorrecta'], 'string', 'max' => 12],
             [['id_dept'], 'exist', 'skipOnError' => true, 'targetClass' => Departamento::className(), 'targetAttribute' => ['id_dept' => 'id']],
         ];
     }
@@ -44,7 +46,7 @@ class Pregunta extends \yii\db\ActiveRecord
             'id' => 'Id:',
             'id_dept' => 'Departamento Id:',
             'pregunta' => 'Pregunta:',
-            
+            'incorrecta'=>'Incorrecta:',
         ];
     }
 

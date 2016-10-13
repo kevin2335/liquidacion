@@ -11,7 +11,10 @@ use app\models\ContactForm;
 use app\models\Empleado;
 use app\models\Certificacion;
 use app\models\CertificacionDeptSearch;
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/dev
 class SiteController extends Controller
 {
     /**
@@ -39,6 +42,7 @@ class SiteController extends Controller
             ],
         ];
     }
+<<<<<<< HEAD
 
     public function actionCreate()
     {
@@ -55,6 +59,8 @@ class SiteController extends Controller
         $this->render()*/
     }
 
+=======
+>>>>>>> refs/remotes/origin/dev
     /**
      * @inheritdoc
      */
@@ -153,7 +159,10 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/dev
     protected function findCertificacion($estado_id)
     {
         if (($model = Certificacion::find()->where(['id_estado' =>$estado_id])->all()) !== null) {
@@ -162,5 +171,16 @@ class SiteController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+<<<<<<< HEAD
 
+=======
+    /**
+    * Concatena el nombre con los apellidos
+    * @return string
+    */
+    public function getNombreCompleto()
+    {
+        return $this->nombre_sup.' '.$this->apellido_p_sup.' '.$this->apellido_m_sup;
+    }
+>>>>>>> refs/remotes/origin/dev
 }

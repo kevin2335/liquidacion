@@ -5,10 +5,15 @@ namespace app\controllers;
 use Yii;
 use app\models\Firma;
 use app\models\FirmaSearch;
+use app\models\Supervisor;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+<<<<<<< HEAD
 
+=======
+use yii\filters\AccessControl;
+>>>>>>> refs/remotes/origin/dev
 /**
  * FirmaController implements the CRUD actions for Firma model.
  */
@@ -20,6 +25,17 @@ class FirmaController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['create', 'update'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    // everything else is denied
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -61,12 +77,27 @@ class FirmaController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+<<<<<<< HEAD
     public function actionCreate()
     {
         $model = new Firma();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
+=======
+    public function actionCreate($id)
+    {
+        $sup_email = Yii::$app->user->identity->email;
+        $supervisor = $this->findSup($sup_email);
+
+        $model = new Firma();
+        $model->id_certificacion = $id; //checklater
+        $model->id_dept = $supervisor->id_dept;
+        $model->id_supervisor = $supervisor->id;
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['site/index']);
+>>>>>>> refs/remotes/origin/dev
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -121,4 +152,43 @@ class FirmaController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+<<<<<<< HEAD
+=======
+    protected function findCert($id)
+    {
+        if (($model = Firma::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    /**
+    *
+    *
+    */
+    protected function findCertificacion($id)
+    {
+        if (($model = Supervisor::find()->where(['id_dept' => $id])->all()) !== null) {//findOne($id)) !== null) {
+      //  find()->where(['id_dept' => $id])->all()) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    /**
+     * Finds the Supervisor model based on its email key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Firma the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findSup($email)
+    {
+        if (($model = Supervisor::findOne(['email' => $email])) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+>>>>>>> refs/remotes/origin/dev
 }

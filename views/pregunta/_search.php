@@ -19,8 +19,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_dept') ?>
 
+<<<<<<< HEAD
 
     <?php // echo $form->field($model, 'na_bool') ?>
+=======
+    <?= $form->field($model, 'incorrecta') ?>
+>>>>>>> refs/remotes/origin/dev
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

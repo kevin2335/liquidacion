@@ -1,10 +1,7 @@
 <?php
-
 namespace app\models;
-
 use Yii;
 use yii\behaviors\TimestampBehavior;
-
 /**
  * This is the model class for table "empleado".
  *
@@ -34,7 +31,6 @@ class Solicitar extends \yii\db\ActiveRecord
     {
         return 'empleado';
     }
-
     /**
      * @inheritdoc
      */
@@ -48,7 +44,6 @@ class Solicitar extends \yii\db\ActiveRecord
             [['razon_cese'], 'string', 'max' => 20], [['email'], 'string', 'max' => 128],
         ];
     }
-
     /**
      * @inheritdoc
      */
@@ -70,7 +65,6 @@ class Solicitar extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
-
     public function behaviors()
     {
         return [
@@ -84,7 +78,6 @@ class Solicitar extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Certificacion::className(), ['id_empleado' => 'id']);
     }
-
     /**
      * @return \yii\db\ActiveQuery
      */

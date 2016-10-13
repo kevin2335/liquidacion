@@ -1,5 +1,4 @@
 <?php
-
 namespace app\models;
 
 use Yii;
@@ -83,6 +82,7 @@ class Empleado extends \yii\db\ActiveRecord
     {
         return $this->hasMany(EmpledoSupervisor::className(), ['empleado_id' => 'id']);
     }
+<<<<<<< HEAD
 
     /**
      * @return \yii\db\ActiveQuery
@@ -92,4 +92,14 @@ class Empleado extends \yii\db\ActiveRecord
             return $this->nombre.' '.$this->apellido_p.' '.$this->apellido_m;
         }
 
+=======
+    /**
+    * Concatena el nombre con los apellidos
+    * @return string
+    */
+    public function getSolicitante()
+    {
+        return $this->nombre.' '.$this->apellido_p.' '.$this->apellido_m;
+    }
+>>>>>>> refs/remotes/origin/dev
 }
