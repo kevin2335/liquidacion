@@ -8,6 +8,8 @@ use app\models\EstadoSearch;
 use app\models\Empleado;
 use app\models\EmpleadoSearch;
 use app\models\EmpleadoSolicitudSearch;
+use app\models\EmpleadoSupervisor;
+use app\models\EmpleadoSupervisorSearch;
 use app\models\Certificacion;
 use app\models\CertificacionSearch;
 use yii\web\Controller;
@@ -39,12 +41,12 @@ class EstadoController extends Controller
      * Lists all Estado models.
      * @return mixed
      */
-    public function actionIndex($id = 1)
+    public function actionIndex($id = 4)
     {
         $searchModel = new CertificacionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $id);
         $searchModel2 = new CertificacionSearch();
-        $empleado = $searchModel2->search3(Yii::$app->request->queryParams, $id);
+        $empleado = $searchModel2->search3(Yii::$app->request->queryParams, $id = 2);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
