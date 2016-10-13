@@ -70,14 +70,7 @@ class ResultadoController extends Controller
      */
     public function actionCreate($cert_id = 3)
     {
-<<<<<<< HEAD
-      +
         $dept_id = 4;
-=======
-      //  $sup_email = Yii::$app->user->identity->email;
-    //    $supervisor = $this->findSup($sup_email);
-        $dept_id = 1;
->>>>>>> refs/remotes/origin/dev
         $sup_id = 1;
         $preguntas = $this->findPreguntas($dept_id);
         $resultados = [];

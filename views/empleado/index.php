@@ -23,22 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-<<<<<<< HEAD
 
-            'id',
-            'nombre',
-            'apellido_m',
-            'apellido_p',
-            // 'seguro_social',
-            // 'nombramiento',
-            // 'puesto',
-            // 'oficina_division',
-            // 'fecha_empleado',
-            // 'razon_cese',
-            // 'created_at',
-            // 'updated_at',
-
-=======
             'solicitante',
             'seguro_social',
             'nombramiento',
@@ -48,7 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'razon_cese',
             'created_at',
           //  'updated_at',
->>>>>>> refs/remotes/origin/dev
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

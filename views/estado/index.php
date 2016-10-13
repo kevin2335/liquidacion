@@ -28,10 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'filterModel' => $searchModel,
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/remotes/origin/dev
                 //'id',
                 'estado.estado',
                 [
@@ -42,13 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a('Resultado', ['resultado/index', 'id' => $model->id],['class' => 'btn btn-info btn-xs']);
                     }
                 ],
-<<<<<<< HEAD
 
-            ],
-
-=======
-            ],
->>>>>>> refs/remotes/origin/dev
         ]); ?>
 
       </div>
@@ -61,11 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
   <div class="col-sm-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-<<<<<<< HEAD
         <h1>Solicitudes ya procesadas</h1>
-=======
-        <h1>Solicitudes ya firmadas</h1>
->>>>>>> refs/remotes/origin/dev
       </div>
       <div class="panel-body">
 
@@ -76,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
               'columns' => [
                   ['class' => 'yii\grid\SerialColumn'],
                   'empleado.Solicitante',
-<<<<<<< HEAD
+                  
                   //'supervisor_id',
                   'empleado.razon_cese',
 
@@ -89,14 +76,4 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
   </div>
 
-
-=======
-                ],
-              ]);
-        ?>
-
-      </div>
-    </div>
-  </div>
->>>>>>> refs/remotes/origin/dev
 </div>

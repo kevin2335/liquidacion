@@ -9,11 +9,8 @@ use app\models\Supervisor;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-<<<<<<< HEAD
 
-=======
 use yii\filters\AccessControl;
->>>>>>> refs/remotes/origin/dev
 /**
  * FirmaController implements the CRUD actions for Firma model.
  */
@@ -77,14 +74,12 @@ class FirmaController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-<<<<<<< HEAD
     public function actionCreate()
     {
         $model = new Firma();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-=======
     public function actionCreate($id)
     {
         $sup_email = Yii::$app->user->identity->email;
@@ -97,7 +92,6 @@ class FirmaController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['site/index']);
->>>>>>> refs/remotes/origin/dev
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -152,8 +146,7 @@ class FirmaController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-<<<<<<< HEAD
-=======
+
     protected function findCert($id)
     {
         if (($model = Firma::findOne($id)) !== null) {
@@ -190,5 +183,4 @@ class FirmaController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
->>>>>>> refs/remotes/origin/dev
 }

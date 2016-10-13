@@ -28,14 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-<<<<<<< HEAD
-            'id',
-            'nombre',
-            'apellido_m',
-            'apellido_p',
-=======
             'solicitante',
->>>>>>> refs/remotes/origin/dev
             'seguro_social',
             'nombramiento',
             'puesto',

@@ -26,12 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'idDept.nombre_dept',
             'pregunta:ntext',
-<<<<<<< HEAD
-            
-=======
             'incorrecta:ntext',
 
->>>>>>> refs/remotes/origin/dev
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

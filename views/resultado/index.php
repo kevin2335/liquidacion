@@ -29,13 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
         //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-<<<<<<< HEAD
-
-            'id',
-            'id_supervisor',
-=======
+            
             'supervisor.nombre_sup',
->>>>>>> refs/remotes/origin/dev
             'id_certificacion',
           //  'certificacion.empleado.nombre',
             'resultado',
