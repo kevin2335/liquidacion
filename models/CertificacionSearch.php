@@ -106,13 +106,6 @@ class CertificacionSearch extends Certificacion
         /*$query = EmpleadoSupervisor::find()->with(['empleado'])
                                       ->where(['supervisor_id' => $sup_id]);*/
 
-        /*$query = EmpleadoSupervisor::find()->InnerJoin(['certificacion'])
-                                           ->InnerJoin(['empleado'])
-                                           ->where(['supervisor_id' => $sup_id])
-                                           ->andWhere(['certificacion.id_estado' => 3])
-                                           ->andWhere(['certificacion.id_empleado' => 'estado.id'])
-                                           ->andWhere(['empleado_id' => 'empleado.id']);*/
-
         // add conditions that should always apply here
 
         $empleado = new ActiveDataProvider([
