@@ -41,7 +41,7 @@ class EstadoController extends Controller
      * Lists all Estado models.
      * @return mixed
      */
-    public function actionIndex($id = 4)
+    public function actionIndex($id = 1)
     {
         $searchModel = new CertificacionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $id);

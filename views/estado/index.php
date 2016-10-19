@@ -36,7 +36,19 @@ $this->params['breadcrumbs'][] = $this->title;
                     'format' => 'html',
                     'value' => function ($model) {
                         //echo $model->id;
-                        return Html::a('Resultado', ['resultado/index', 'id' => $model->id],['class' => 'btn btn-info btn-xs']);
+                          return Html::a('Resultado', ['resultado/index', 'id' => $model->id],['class' => 'btn btn-info btn-xs']);
+                    }
+                ],
+                [
+                    'label' => 'Volver a Solicitar',
+                    'format' => 'html',
+                    'value' => function ($model) {
+                        //echo $model->id;
+                        if($model->id_estado == 4)
+                          return Html::a('Volver a Someter', ['solicitar/create'],['class' => 'btn btn-warning btn-xs']);
+                        else {
+                          return Html::a(' ');
+                        }
                     }
                 ],
               ]
