@@ -66,8 +66,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
                   //'supervisor_id',
                   'empleado.razon_cese',
-
-
+                  [
+                      'label' => 'Ver resultados',
+                      'format' => 'html',
+                      'value' => function ($model) {
+                          //echo $model->id;
+                          return Html::a('Resultado', ['resultado/index', 'id' => $model->id],['class' => 'btn btn-info btn-xs']);
+                      }
+                  ],
                 ],
               ]);
         ?>
